@@ -28,3 +28,23 @@ const initialCards = [
 initialCards.forEach(function (item) {
   console.log(item.name);
 });
+
+const profileEditBtn = document.querySelector(".profile__edit-button");
+const editProfileModal = document.querySelector("#edit-popup");
+const profileCloseBtn = editProfileModal.querySelector(".popup__close");
+
+function openModal(modal) {
+  modal.classList.add("popup_is-opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("popup_is-opened");
+}
+
+profileEditBtn.addEventListener("click", function () {
+  openModal(editProfileModal);
+});
+
+profileCloseBtn.addEventListener("click", function () {
+  closeModal(editProfileModal);
+});
