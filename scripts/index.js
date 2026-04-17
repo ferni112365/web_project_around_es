@@ -48,3 +48,14 @@ profileEditBtn.addEventListener("click", function () {
 profileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
+
+function fillProfileForm() {
+  const name = document.querySelector(".profile__title");
+  const description = document.querySelector(".profile__description");
+  let editName = document.querySelector(".popup__input_type_name");
+  let editDescription = document.querySelector(
+    ".popup__input_type_description",
+  );
+  editName.value = name.textContent;
+  editDescription.value = description.textContent;
+}
