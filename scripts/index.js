@@ -42,7 +42,7 @@ function closeModal(modal) {
 }
 
 profileEditBtn.addEventListener("click", function () {
-  openModal(editProfileModal);
+  handleOpenEditModal();
 });
 
 profileCloseBtn.addEventListener("click", function () {
