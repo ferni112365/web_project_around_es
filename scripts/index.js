@@ -81,4 +81,8 @@ function handleProfileFormSubmit(evt) {
 
   nameValue.textContent = newNameValue;
   descriptionValue.textContent = newDescriptionValue;
+
+  closeModal(editProfileModal);
 }
+
+formElement.addEventListener("submit", handleProfileFormSubmit);
