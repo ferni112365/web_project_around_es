@@ -64,3 +64,21 @@ function handleOpenEditModal() {
   fillProfileForm();
   openModal(editProfileModal);
 }
+
+let formElement = editProfileModal.querySelector("#edit-profile-form");
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  let nameInput = editProfileModal.querySelector(".popup__input_type_name");
+  let jobInput = editProfileModal.querySelector(
+    ".popup__input_type_description",
+  );
+
+  let newNameValue = nameInput.value;
+  let newDescriptionValue = jobInput.value;
+
+  let nameValue = document.querySelector(".profile__title");
+  let descriptionValue = document.querySelector(".profile__description");
+
+  nameValue.textContent = newNameValue;
+  descriptionValue.textContent = newDescriptionValue;
+}
