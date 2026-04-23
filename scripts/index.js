@@ -88,4 +88,8 @@ function handleProfileFormSubmit(evt) {
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
 
-function getCardElement(name, link) {}
+function getCardElement(name, link) {
+  const cardElement = cardTemplate.content.cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardImage = cardElement.querySelector(".card__image");
+}
