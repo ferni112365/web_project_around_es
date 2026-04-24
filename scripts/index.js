@@ -102,3 +102,13 @@ function getCardElement(
 
   return cardElement;
 }
+
+function renderCard(name, link, container) {
+  const cardElement = getCardElement(name, link);
+  container.prepend(cardElement);
+}
+
+const container = document.querySelector(".cards__list");
+initialCards.forEach((card) => {
+  renderCard(card.name, card.link, container);
+});
