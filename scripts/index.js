@@ -112,3 +112,7 @@ const container = document.querySelector(".cards__list");
 initialCards.forEach((card) => {
   renderCard(card.name, card.link, container);
 });
+
+const openModalCard = document.querySelector(".profile__add-button");
+const newCardForm = document.querySelector("#new-card-form");
+const closeButtonCard = document.querySelector(".popup__close");
