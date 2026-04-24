@@ -114,5 +114,8 @@ initialCards.forEach((card) => {
 });
 
 const openModalCard = document.querySelector(".profile__add-button");
-const newCardForm = document.querySelector("#new-card-form");
+const newCardPopup = document.querySelector("#new-card-popup");
 const closeButtonCard = document.querySelector(".popup__close");
+openModalCard.addEventListener("click", function () {
+  openModal(newCardPopup);
+});
