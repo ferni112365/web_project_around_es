@@ -115,12 +115,30 @@ initialCards.forEach((card) => {
 
 const openModalCard = document.querySelector(".profile__add-button");
 const newCardPopup = document.querySelector("#new-card-popup");
-const closeButtonCard = document.querySelector(".popup__close");
+const closeButtonCard = newCardPopup.querySelector(".popup__close");
+console.log(closeButtonCard);
 
 openModalCard.addEventListener("click", function () {
   openModal(newCardPopup);
 });
 
 closeButtonCard.addEventListener("click", function () {
+  console.log("Botón de cerrar clickeado");
   closeModal(newCardPopup);
 });
+
+let newPlace = newCardPopup.querySelector("#new-card-form");
+function handleCardFormSubmit(evt) {
+  evt.preventDefault();
+  let namePlace = newCardPopup.querySelector(".popup__input_type_card-name");
+  let placeholder = newCardPopup.querySelector(".popup__input_type_url");
+
+  let newTitleValue = namePlace.value;
+  let newlinkValue = placeholder.value;
+
+  renderCard(newTitleValue, newlinkValue, container);
+  closeModal(newCardPopup);
+  newPlace.reset();
+}
+
+newPlace.addEventListener("submit", handleCardFormSubmit);
