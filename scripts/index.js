@@ -105,6 +105,12 @@ function getCardElement(
     likeButtonCard.classList.toggle("card__like-button_is-active");
   });
 
+  const deleteButtonCard = cardElement.querySelector(".card__delete-button");
+  deleteButtonCard.addEventListener("click", function () {
+    const cardToDelete = deleteButtonCard.closest(".card");
+    cardToDelete.remove();
+  });
+
   return cardElement;
 }
 
