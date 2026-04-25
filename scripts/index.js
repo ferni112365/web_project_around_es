@@ -100,6 +100,11 @@ function getCardElement(
   cardImage.alt = name;
   cardTitle.textContent = name;
 
+  const likeButtonCard = cardElement.querySelector(".card__like-button");
+  likeButtonCard.addEventListener("click", function () {
+    likeButtonCard.classList.toggle("card__like-button_is-active");
+  });
+
   return cardElement;
 }
 
