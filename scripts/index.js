@@ -55,6 +55,10 @@ profileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
 
+modalCloseBtn.addEventListener("click", function () {
+  closeModal(popUpImage);
+});
+
 function fillProfileForm() {
   const name = document.querySelector(".profile__title");
   const description = document.querySelector(".profile__description");
@@ -100,6 +104,13 @@ function getCardElement(
   const cardElement = cardTemplate.content.cloneNode(true);
   const cardTitle = cardElement.querySelector(".card__title");
   const cardImage = cardElement.querySelector(".card__image");
+
+  cardImage.addEventListener("click", function () {
+    modalCaption.textContent = name;
+    modalImage.alt = name;
+    modalImage.src = link;
+    openModal(popUpImage);
+  });
 
   cardImage.src = link;
   cardImage.alt = name;
