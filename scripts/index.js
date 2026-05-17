@@ -169,3 +169,9 @@ function handleCardFormSubmit(evt) {
 }
 
 newPlace.addEventListener("submit", handleCardFormSubmit);
+
+const editProfilePopup = document.querySelector("#edit-popup");
+const editForm = editProfilePopup.querySelector(".popup__form");
+const nameInput = editForm.querySelector(".popup__input_type_name");
+const aboutInput = editForm.querySelector(".popup__input_type_description");
+const saveButton = editForm.querySelector(".popup__button");
