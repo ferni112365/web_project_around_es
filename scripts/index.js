@@ -175,3 +175,6 @@ const editForm = editProfilePopup.querySelector(".popup__form");
 const nameInput = editForm.querySelector(".popup__input_type_name");
 const aboutInput = editForm.querySelector(".popup__input_type_description");
 const saveButton = editForm.querySelector(".popup__button");
+
+
+function showInputError(name, )

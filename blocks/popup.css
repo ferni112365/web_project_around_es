@@ -121,21 +121,19 @@
   border-bottom: 1px solid #ff0000;
 }
 
-.popup__input-error {
+.form__input-error {
   color: #ff0000;
   font-size: 12px;
-  line-height: 15px;
-  min-height: 12px;
-  display: block;
-  margin-top: 5px;
+  display: none;
 }
 
-.popup__button_disabled {
-  background-color: transparent;
+.form__input-error_active {
+  /* background-color: transparent;
   color: #000000;
   border: 1px solid #000000;
   opacity: 0.2;
-  cursor: default;
+  cursor: default; */
+  display: block;
 }
 
 @media screen and (max-width: 544px) {
