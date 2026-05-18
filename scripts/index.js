@@ -176,18 +176,16 @@ const nameInput = editForm.querySelector(".popup__input_type_name");
 const aboutInput = editForm.querySelector(".popup__input_type_description");
 const saveButton = editForm.querySelector(".popup__button");
 
-function showInputError(inputElement, errorMessage) {
-  const errorElement = formElement.querySelector(
-    `.${inputElement.id}-input-error`,
-  );
+function showInputError(formElement, inputElement, errorMessage) {
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add("popup__input_type_error");
   errorElement.textContent = errorMessage;
-  errorElement.classList.add(".form__input-error_active");
+  errorElement.classList.add("form__input-error_active");
 }
 
-function hideInputError(element) {
-  const errorElement = formElement.querySelector(`.${element.id}-input-error`);
-  element.classList.remove("popup__input_type_error");
+function hideInputError(formElement, inputElement) {
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+  inputElement.classList.remove("popup__input_type_error");
   errorElement.classList.remove("form__input-error_active");
   errorElement.textContent = "";
 }

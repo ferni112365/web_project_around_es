@@ -54,6 +54,7 @@
           <form class="popup__form" id="edit-profile-form">
             <input
               class="popup__input popup__input_type_name"
+              id="name-input"
               name="name"
               placeholder="Nombre"
               type="text"
@@ -61,9 +62,10 @@
               minlength="2"
               maxlength="40"
             />
-            <span class="popup__input-error form__input-error"></span>
+            <span class="name-input-error form__input-error"></span>
             <input
               class="popup__input popup__input_type_description"
+              id="description-input"
               name="description"
               placeholder="Acerca de mí"
               type="text"
@@ -71,7 +73,7 @@
               minlength="2"
               maxlength="200"
             />
-            <span class="popup__input-error description-error"></span>
+            <span class="description-input-error form__input-error"></span>
             <button class="button popup__button" type="submit">Guardar</button>
           </form>
         </div>
