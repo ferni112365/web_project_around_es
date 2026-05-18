@@ -184,3 +184,10 @@ function showInputError(inputElement, errorMessage) {
   errorElement.textContent = errorMessage;
   errorElement.classList.add(".form__input-error_active");
 }
+
+function hideInputError(element) {
+  const errorElement = formElement.querySelector(`.${element.id}-input-error`);
+  element.classList.remove("popup__input_type_error");
+  errorElement.classList.remove("form__input-error_active");
+  errorElement.textContent = "";
+}
