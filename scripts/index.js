@@ -176,5 +176,11 @@ const nameInput = editForm.querySelector(".popup__input_type_name");
 const aboutInput = editForm.querySelector(".popup__input_type_description");
 const saveButton = editForm.querySelector(".popup__button");
 
-
-function showInputError(name, )
+function showInputError(inputElement, errorMessage) {
+  const errorElement = formElement.querySelector(
+    `.${inputElement.id}-input-error`,
+  );
+  inputElement.classList.add("popup__input_type_error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(".form__input-error_active");
+}
