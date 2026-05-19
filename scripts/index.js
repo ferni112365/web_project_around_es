@@ -200,3 +200,11 @@ function hasInvalidInput(inputList) {
 // function hasInvalidInput(inputList) {
 //   return inputList.some((input) => !input.validity.valid);
 // }
+
+function toggleButtonState(inputList, buttonElement) {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.disabled = false;
+  }
+}
