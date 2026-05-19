@@ -189,3 +189,14 @@ function hideInputError(formElement, inputElement) {
   errorElement.classList.remove("form__input-error_active");
   errorElement.textContent = "";
 }
+
+function hasInvalidInput(inputList) {
+  return inputList.some((input) => {
+    return !input.validity.valid;
+  });
+}
+
+// otra opción de código más concisa podría ser:
+// function hasInvalidInput(inputList) {
+//   return inputList.some((input) => !input.validity.valid);
+// }
