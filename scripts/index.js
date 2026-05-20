@@ -208,3 +208,11 @@ function toggleButtonState(inputList, buttonElement) {
     buttonElement.disabled = false;
   }
 }
+
+const inputList = Array.from(editForm.querySelectorAll(".popup__input"));
+
+inputList.forEach((inputElement) => {
+  inputElement.addEventListener("input", function () {
+    toggleButtonState(inputList, saveButton);
+  });
+});
