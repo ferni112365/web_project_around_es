@@ -211,8 +211,13 @@ function toggleButtonState(inputList, buttonElement) {
 
 const inputList = Array.from(editForm.querySelectorAll(".popup__input"));
 
-inputList.forEach((inputElement) => {
-  inputElement.addEventListener("input", function () {
+inputList.forEach((input) => {
+  input.addEventListener("input", function () {
+    if (!input.validity.valid) {
+      showInputError(editForm, input, input.validationMessage);
+    } else {
+      hideInputError(editForm, input);
+    }
     toggleButtonState(inputList, saveButton);
   });
 });
