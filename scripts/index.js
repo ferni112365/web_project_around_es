@@ -170,6 +170,7 @@ function handleCardFormSubmit(evt) {
 
 newPlace.addEventListener("submit", handleCardFormSubmit);
 
+// EJERCICIO 1
 const editProfilePopup = document.querySelector("#edit-popup");
 const editForm = editProfilePopup.querySelector(".popup__form");
 const nameInput = editForm.querySelector(".popup__input_type_name");
@@ -245,15 +246,11 @@ function hideInputError(formElement, inputElement) {
   errorElement.textContent = "";
 }
 
-const inputList = [nameForm, linkForm];
-
 function hasInvalidInput(inputList) {
   return inputList.some((input) => {
     return !input.validity.valid;
   });
 }
-
-// const hasInvalid = hasInvalidInput(inputList);
 
 function toggleButtonState(inputList, buttonElement) {
   if (hasInvalidInput(inputList)) {
@@ -263,15 +260,19 @@ function toggleButtonState(inputList, buttonElement) {
   }
 }
 
+const inputListNewCard = [nameForm, linkForm];
+
 function enableValidation() {
-  inputList.forEach((input) => {
+  inputListNewCard.forEach((input) => {
     input.addEventListener("input", function () {
       if (!input.validity.valid) {
         showInputError(formNewCard, input, input.validationMessage);
       } else {
         hideInputError(formNewCard, input);
       }
-      toggleButtonState(inputList, submitButton);
+      toggleButtonState(inputListNewCard, submitButton);
     });
   });
 }
+
+enableValidation();
