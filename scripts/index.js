@@ -221,3 +221,12 @@ inputList.forEach((input) => {
     toggleButtonState(inputList, saveButton);
   });
 });
+
+// EJERCICIO 2
+const editNewcardPopup = document.querySelector("#new-card-popup");
+const formNewCard = editNewcardPopup.querySelector(".popup__form");
+const nameForm = formNewCard.querySelector(".popup__input_type_card-name");
+const linkForm = formNewCard.querySelector(".popup__input_type_url");
+const submitButton = formNewCard.querySelector(".popup__button");
+const nameInputError = formNewCard.querySelector("#place-name-input-error");
+const linkInputError = formNewCard.querySelector("#link-input-error");
