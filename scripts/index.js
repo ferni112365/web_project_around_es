@@ -262,3 +262,16 @@ function toggleButtonState(inputList, buttonElement) {
     buttonElement.disabled = false;
   }
 }
+
+function enableValidation() {
+  inputList.forEach((input) => {
+    input.addEventListener("input", function () {
+      if (!input.validity.valid) {
+        showInputError(formNewCard, input, input.validationMessage);
+      } else {
+        hideInputError(formNewCard, input);
+      }
+      toggleButtonState(inputList, submitButton);
+    });
+  });
+}
