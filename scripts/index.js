@@ -244,3 +244,21 @@ function hideInputError(formElement, inputElement) {
   errorElement.classList.remove("form__input-error_active");
   errorElement.textContent = "";
 }
+
+const inputList = [nameForm, linkForm];
+
+function hasInvalidInput(inputList) {
+  return inputList.some((input) => {
+    return !input.validity.valid;
+  });
+}
+
+// const hasInvalid = hasInvalidInput(inputList);
+
+function toggleButtonState(inputList, buttonElement) {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.disabled = false;
+  }
+}
