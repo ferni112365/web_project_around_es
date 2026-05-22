@@ -291,13 +291,12 @@ superposition.forEach((windowPopup) => {
 // EJERCICIO 4
 const popups = document.querySelectorAll(".popup");
 
-popups.forEach((popupWindow) => {
-  if (event.key === "Escape") {
-    popupWindow.classList.remove("openModal");
-  }
-});
-
 document.addEventListener("keydown", function (event) {
   console.log(event.target);
   console.log(event.currentTarget);
+
+  if (event.key === "Escape")
+    popups.forEach((popupWindow) => {
+      popupWindow.classList.remove("openModal");
+    });
 });
