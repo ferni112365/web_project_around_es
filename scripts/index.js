@@ -273,3 +273,17 @@ function enableValidation() {
 }
 
 enableValidation();
+
+// EJERCICIO 3
+const superposition = document.querySelectorAll(".popup");
+
+superposition.forEach((windowPopup) => {
+  windowPopup.addEventListener("click", function (event) {
+    console.log(event.target);
+    console.log(event.currentTarget);
+
+    if (event.target === event.currentTarget) {
+      closeModal(windowPopup);
+    }
+  });
+});
