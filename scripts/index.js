@@ -297,6 +297,6 @@ document.addEventListener("keydown", function (event) {
 
   if (event.key === "Escape")
     popups.forEach((popupWindow) => {
-      popupWindow.classList.remove("openModal");
+      popupWindow.classList.remove("popup_is-opened");
     });
 });
