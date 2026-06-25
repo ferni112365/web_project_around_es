@@ -167,7 +167,6 @@ function handleCardFormSubmit(evt) {
 
 newPlace.addEventListener("submit", handleCardFormSubmit);
 
-// EJERCICIO 1
 const editProfilePopup = document.querySelector("#edit-popup");
 const editForm = editProfilePopup.querySelector(".popup__form");
 const nameInput = editForm.querySelector(".popup__input_type_name");
@@ -220,7 +219,6 @@ inputList.forEach((input) => {
   });
 });
 
-// EJERCICIO 2
 const editNewcardPopup = document.querySelector("#new-card-popup");
 const formNewCard = editNewcardPopup.querySelector(".popup__form");
 const nameForm = formNewCard.querySelector(".popup__input_type_card-name");
@@ -274,7 +272,6 @@ function enableValidation() {
 
 enableValidation();
 
-// EJERCICIO 3
 const superposition = document.querySelectorAll(".popup");
 
 superposition.forEach((windowPopup) => {
@@ -288,7 +285,6 @@ superposition.forEach((windowPopup) => {
   });
 });
 
-// EJERCICIO 4
 const popups = document.querySelectorAll(".popup");
 
 document.addEventListener("keydown", function (event) {
@@ -300,3 +296,5 @@ document.addEventListener("keydown", function (event) {
       popupWindow.classList.remove("popup_is-opened");
     });
 });
+
+// ejercicio 1
