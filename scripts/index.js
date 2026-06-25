@@ -312,4 +312,13 @@ class Card {
       .cloneNode(true);
     return cardElement;
   }
+
+  generateCard() {
+    this._element = this._getTemplate();
+    this._element.querySelector(".card__image").style.backgroundImage =
+      `url(${this._image})`;
+    this._element.querySelector(".card__title").textContent = this._name;
+
+    return this._element;
+  }
 }
