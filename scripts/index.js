@@ -341,7 +341,7 @@ class Card {
     this._element
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleOpenPopup();
+        this._handleOpenPopup(this._name, this._link);
       });
   }
 
@@ -355,13 +355,18 @@ class Card {
     this._element.remove();
   }
 
-  _handleOpenPopup() {
-    this._element.querySelector(".card__image").classList.add(".popup__image");
-  }
+  // _handleOpenPopup() {
+  //   this._element.querySelector(".card__image").classList.add(".popup__image");
+  // }
 }
 
 initialCards.forEach((item) => {
-  const card = new Card(item, "#card-template");
+  const card = new Card(item, "#card-template", (name, link) => {
+    modalImage.src = link;
+    modalCaption.textContent = name;
+    openModal("#image-popup");
+  });
+
   const cardElement = card.generateCard();
   document.querySelector(".cards__list").append(cardElement);
 });
