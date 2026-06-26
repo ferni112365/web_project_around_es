@@ -321,4 +321,18 @@ class Card {
 
     return this._element;
   }
+
+  _setEventListeners() {
+    this._element
+      .querySelector(".card__like-button")
+      .addEventListener("click", () => {
+        this._handleLikeClick();
+      });
+  }
+
+  _handleLikeClick() {
+    this._element
+      .querySelector(".card__like-button")
+      .classList.toggle("card__like-button_is-active");
+  }
 }
