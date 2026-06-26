@@ -354,17 +354,15 @@ class Card {
   _handleDeleteClick() {
     this._element.remove();
   }
-
-  // _handleOpenPopup() {
-  //   this._element.querySelector(".card__image").classList.add(".popup__image");
-  // }
 }
+
+const popupImagen = document.querySelector("#image-popup");
 
 initialCards.forEach((item) => {
   const card = new Card(item, "#card-template", (name, link) => {
     modalImage.src = link;
     modalCaption.textContent = name;
-    openModal("#image-popup");
+    openModal(popupImagen);
   });
 
   const cardElement = card.generateCard();
