@@ -316,7 +316,7 @@ class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._element.querySelector(".card__image").style.backgroundImage =
-      `url(${this._image})`;
+      `url(${this._link})`;
     this._element.querySelector(".card__title").textContent = this._name;
 
     return this._element;
