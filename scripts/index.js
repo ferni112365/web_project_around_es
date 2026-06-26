@@ -347,3 +347,11 @@ class Card {
     this._element.remove();
   }
 }
+
+initialCards.forEach ((item) => {
+    const card = new Card (item, "#card-template");
+
+    const cardElement = card.generateCard();
+
+    document.querySelector(".cards__list").append(cardElement)
+})
