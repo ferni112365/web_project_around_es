@@ -97,45 +97,45 @@ function handleProfileFormSubmit(evt) {
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
 
-function getCardElement(name, link) {
-  const cardElement = cardTemplate.content.cloneNode(true);
-  const cardTitle = cardElement.querySelector(".card__title");
-  const cardImage = cardElement.querySelector(".card__image");
+// function getCardElement(name, link) {
+//   const cardElement = cardTemplate.content.cloneNode(true);
+//   const cardTitle = cardElement.querySelector(".card__title");
+//   const cardImage = cardElement.querySelector(".card__image");
 
-  cardImage.addEventListener("click", function () {
-    modalCaption.textContent = name;
-    modalImage.alt = name;
-    modalImage.src = link;
-    openModal(popUpImage);
-  });
+// cardImage.addEventListener("click", function () {
+//   modalCaption.textContent = name;
+//   modalImage.alt = name;
+//   modalImage.src = link;
+//   openModal(popUpImage);
+// });
 
-  cardImage.src = link;
-  cardImage.alt = name;
-  cardTitle.textContent = name;
+// cardImage.src = link;
+// cardImage.alt = name;
+// cardTitle.textContent = name;
 
-  const likeButtonCard = cardElement.querySelector(".card__like-button");
-  likeButtonCard.addEventListener("click", function () {
-    likeButtonCard.classList.toggle("card__like-button_is-active");
-  });
+//   const likeButtonCard = cardElement.querySelector(".card__like-button");
+//   likeButtonCard.addEventListener("click", function () {
+//     likeButtonCard.classList.toggle("card__like-button_is-active");
+//   });
 
-  const deleteButtonCard = cardElement.querySelector(".card__delete-button");
-  deleteButtonCard.addEventListener("click", function () {
-    const cardToDelete = deleteButtonCard.closest(".card");
-    cardToDelete.remove();
-  });
+//   const deleteButtonCard = cardElement.querySelector(".card__delete-button");
+//   deleteButtonCard.addEventListener("click", function () {
+//     const cardToDelete = deleteButtonCard.closest(".card");
+//     cardToDelete.remove();
+//   });
 
-  return cardElement;
-}
+//   return cardElement;
+// }
 
-function renderCard(name, link, container) {
-  const cardElement = getCardElement(name, link);
-  container.prepend(cardElement);
-}
+// function renderCard(name, link, container) {
+//   const cardElement = getCardElement(name, link);
+//   container.prepend(cardElement);
+// }
 
-const container = document.querySelector(".cards__list");
-initialCards.forEach((card) => {
-  renderCard(card.name, card.link, container);
-});
+// const container = document.querySelector(".cards__list");
+// initialCards.forEach((card) => {
+//   renderCard(card.name, card.link, container);
+// });
 
 const openModalCard = document.querySelector(".profile__add-button");
 const newCardPopup = document.querySelector("#new-card-popup");
@@ -299,10 +299,11 @@ document.addEventListener("keydown", function (event) {
 
 // ejercicio 1
 class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleOpenPopup) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleOpenPopup = handleOpenPopup;
   }
 
   _getTemplate() {
@@ -310,6 +311,7 @@ class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+
     return cardElement;
   }
 
@@ -335,6 +337,12 @@ class Card {
       .addEventListener("click", () => {
         this._handleDeleteClick();
       });
+
+    this._element
+      .querySelector(".card__image")
+      .addEventListener("click", () => {
+        this._handleOpenPopup();
+      });
   }
 
   _handleLikeClick() {
@@ -346,12 +354,14 @@ class Card {
   _handleDeleteClick() {
     this._element.remove();
   }
+
+  _handleOpenPopup() {
+    this._element.querySelector(".card__image").classList.add(".popup__image");
+  }
 }
 
-initialCards.forEach ((item) => {
-    const card = new Card (item, "#card-template");
-
-    const cardElement = card.generateCard();
-
-    document.querySelector(".cards__list").append(cardElement)
-})
+initialCards.forEach((item) => {
+  const card = new Card(item, "#card-template");
+  const cardElement = card.generateCard();
+  document.querySelector(".cards__list").append(cardElement);
+});
