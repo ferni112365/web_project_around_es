@@ -318,6 +318,7 @@ class Card {
     this._element.querySelector(".card__image").style.backgroundImage =
       `url(${this._link})`;
     this._element.querySelector(".card__title").textContent = this._name;
+    this._setEventListeners();
 
     return this._element;
   }
@@ -328,11 +329,21 @@ class Card {
       .addEventListener("click", () => {
         this._handleLikeClick();
       });
+
+    this._element
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => {
+        this._handleDeleteClick();
+      });
   }
 
   _handleLikeClick() {
     this._element
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_is-active");
+  }
+
+  _handleDeleteClick() {
+    this._element.remove();
   }
 }
