@@ -379,9 +379,9 @@ const configurationValidationForm = {
   popupInputError: "popup__input_type_error",
 };
 
-const perfilForm = document.querySelector("#edit-profile-form");
+const form = document.querySelector("#edit-profile-form");
 const newCardForm = document.querySelector("#new-card-form");
 
 class FormValidator {
-  constructor() {}
+  constructor(configurationValidationForm, form) {}
 }
