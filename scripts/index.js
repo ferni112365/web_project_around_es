@@ -167,6 +167,7 @@ function handleCardFormSubmit(evt) {
 
 newPlace.addEventListener("submit", handleCardFormSubmit);
 
+// formulario: editar perfil
 const editProfilePopup = document.querySelector("#edit-popup");
 const editForm = editProfilePopup.querySelector(".popup__form");
 const nameInput = editForm.querySelector(".popup__input_type_name");
@@ -219,6 +220,7 @@ inputList.forEach((input) => {
   });
 });
 
+// formulario: nueva tarjeta
 const editNewcardPopup = document.querySelector("#new-card-popup");
 const formNewCard = editNewcardPopup.querySelector(".popup__form");
 const nameForm = formNewCard.querySelector(".popup__input_type_card-name");
@@ -368,3 +370,8 @@ initialCards.forEach((item) => {
   const cardElement = card.generateCard();
   document.querySelector(".cards__list").append(cardElement);
 });
+
+// Ejercicio2;
+class FormValidator {
+  constructor() {}
+}
