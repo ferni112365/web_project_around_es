@@ -372,6 +372,13 @@ initialCards.forEach((item) => {
 });
 
 // Ejercicio2;
+const configurationValidationForm = {
+  inputSelector: ".popup__input",
+  submitButton: ".popup__button",
+  formErrorActive: "form__input-error_active",
+  popupInputError: "popup__input_type_error",
+};
+
 class FormValidator {
   constructor() {}
 }
