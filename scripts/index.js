@@ -383,5 +383,26 @@ const form = document.querySelector("#edit-profile-form");
 const newCardForm = document.querySelector("#new-card-form");
 
 class FormValidator {
-  constructor(configurationValidationForm, form) {}
+  constructor(configurationValidationForm, form) {
+    this._configurationValidationForm = configurationValidationForm;
+    this._form = form;
+  }
+
+  setEventListeners() {
+    const inputList = this._formElement.querySelectorAll(
+      this._configurationValidationForm.inputSelector,
+    );
+  }
 }
+
+// setEventListeners.forEach((input) => {
+//   input.addEventListener("input", function () {
+//     function toggleButtonState(inputList, buttonElement) {
+//       if (hasInvalidInput(inputList)) {
+//         buttonElement.disabled = true;
+//       } else {
+//         buttonElement.disabled = false;
+//       }
+//     }
+//   });
+// });
