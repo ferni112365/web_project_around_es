@@ -389,9 +389,19 @@ class FormValidator {
   }
 
   setEventListeners() {
-    const inputList = this._formElement.querySelectorAll(
+    const inputList = this._form.querySelectorAll(
       this._configurationValidationForm.inputSelector,
     );
+
+    inputList.forEach((input) => {
+      input.addEventListener("input", function () {
+        if (/^[a-zA-Z]+$/.test(input.value)) {
+          this.hideInputError();
+        } else {
+          this.showInputError(input.validationMessage);
+        }
+      });
+    });
   }
 }
 
