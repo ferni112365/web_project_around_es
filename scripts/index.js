@@ -388,31 +388,36 @@ class FormValidator {
     this._form = form;
   }
 
+  _showInputError() {}
+
+  _hideInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`,
+    );
+  }
+
+  //   function hideInputError(formElement, inputElement) {
+  //   const errorElement = formElement.querySelector(`ñ${inputElement.id}-error`);
+  //   inputElement.classList.remove("popup__input_type_error");
+  //   errorElement.classList.remove("form__input-error_active");
+  //   errorElement.textContent = "";
+  // }
+
   setEventListeners() {
     const inputList = this._form.querySelectorAll(
       this._configurationValidationForm.inputSelector,
     );
 
     inputList.forEach((input) => {
-      input.addEventListener("input", function () {
-        if (/^[a-zA-Z]+$/.test(input.value)) {
-          this.hideInputError();
+      this._input = input;
+
+      input.addEventListener("input", () => {
+        if (input.validity.valid) {
+          this._hideInputError();
         } else {
-          this.showInputError(input.validationMessage);
+          this._showInputError();
         }
       });
     });
   }
 }
-
-// setEventListeners.forEach((input) => {
-//   input.addEventListener("input", function () {
-//     function toggleButtonState(inputList, buttonElement) {
-//       if (hasInvalidInput(inputList)) {
-//         buttonElement.disabled = true;
-//       } else {
-//         buttonElement.disabled = false;
-//       }
-//     }
-//   });
-// });
