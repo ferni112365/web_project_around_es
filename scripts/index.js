@@ -401,15 +401,9 @@ class FormValidator {
     errorElement.textContent = "";
   }
 
-  _submitButton() {
-    const submitList = this._form.querySelectorAll(this._inputSelector);
-
-    !inputList.every((input) => input.validity.valid);
-    submitButton.disabled = true;
-    submitButton.disabled = false;
+  _submitElement(inputList, submitButton) {
+    submitButton.disabled = !inputList.every((input) => input.validity.valid);
   }
-
-  !inputList.every((submitButton.disabled = true || submitButton.disabled = false) => input.validity.valid);
 
   setEventListeners() {
     const inputList = this._form.querySelectorAll(
