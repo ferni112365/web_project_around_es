@@ -356,6 +356,10 @@ class Card {
   _handleDeleteClick() {
     this._element.remove();
   }
+
+  _submitButton() {
+    this._form.querySelectorAll("input");
+  }
 }
 
 const popupImagen = document.querySelector("#image-popup");
@@ -412,8 +416,10 @@ class FormValidator {
       input.addEventListener("input", () => {
         if (!input.validity.valid) {
           this._showInputError(input);
+          submitButton.disabled = true;
         } else {
           this._hideInputError(input);
+          submitButton.disabled = false;
         }
       });
     });
