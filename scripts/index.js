@@ -356,12 +356,6 @@ class Card {
   _handleDeleteClick() {
     this._element.remove();
   }
-
-  _submitButton() {
-    this._form.querySelectorAll("input");
-
-    inputList.every((input) => input.validity.valid);
-  }
 }
 
 const popupImagen = document.querySelector("#image-popup");
@@ -407,6 +401,16 @@ class FormValidator {
     errorElement.textContent = "";
   }
 
+  _submitButton() {
+    const submitList = this._form.querySelectorAll(this._inputSelector);
+
+    !inputList.every((input) => input.validity.valid);
+    submitButton.disabled = true;
+    submitButton.disabled = false;
+  }
+
+  !inputList.every((submitButton.disabled = true || submitButton.disabled = false) => input.validity.valid);
+
   setEventListeners() {
     const inputList = this._form.querySelectorAll(
       this._configurationValidationForm.inputSelector,
@@ -418,10 +422,8 @@ class FormValidator {
       input.addEventListener("input", () => {
         if (!input.validity.valid) {
           this._showInputError(input);
-          submitButton.disabled = true;
         } else {
           this._hideInputError(input);
-          submitButton.disabled = false;
         }
       });
     });
