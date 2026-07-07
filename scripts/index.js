@@ -359,6 +359,8 @@ class Card {
 
   _submitButton() {
     this._form.querySelectorAll("input");
+
+    inputList.every((input) => input.validity.valid);
   }
 }
 
