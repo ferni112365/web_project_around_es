@@ -391,17 +391,15 @@ class FormValidator {
   _showInputError() {}
 
   _hideInputError(inputElement) {
-    const errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`,
+    const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.remove(
+      this._configurationValidationForm.popupInputError,
     );
+    errorElement.classList.remove(
+      this._configurationValidationForm.formErrorActive,
+    );
+    errorElement.textContent = "";
   }
-
-  //   function hideInputError(formElement, inputElement) {
-  //   const errorElement = formElement.querySelector(`ñ${inputElement.id}-error`);
-  //   inputElement.classList.remove("popup__input_type_error");
-  //   errorElement.classList.remove("form__input-error_active");
-  //   errorElement.textContent = "";
-  // }
 
   setEventListeners() {
     const inputList = this._form.querySelectorAll(
@@ -412,10 +410,10 @@ class FormValidator {
       this._input = input;
 
       input.addEventListener("input", () => {
-        if (input.validity.valid) {
-          this._hideInputError();
+        if (!input.validity.valid) {
+          this._showInputError(input);
         } else {
-          this._showInputError();
+          this._hideInputError(input);
         }
       });
     });
