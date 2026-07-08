@@ -394,7 +394,16 @@ class FormValidator {
     );
   }
 
-  _showInputError() {}
+  _showInputError(inputElement) {
+    const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.add(
+      this._configurationValidationForm.popupInputError,
+    );
+    errorElement.classList.add(
+      this._configurationValidationForm.formErrorActive,
+    );
+    errorElement.textContent = inputElement.validationMessage;
+  }
 
   _hideInputError(inputElement) {
     const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
@@ -412,13 +421,7 @@ class FormValidator {
   }
 
   setEventListeners() {
-    const inputList = this._form.querySelectorAll(
-      this._configurationValidationForm.inputSelector,
-    );
-
-    inputList.forEach((input) => {
-      this._input = input;
-
+    this._inputList.forEach((input) => {
       input.addEventListener("input", () => {
         if (!input.validity.valid) {
           this._showInputError(input);
