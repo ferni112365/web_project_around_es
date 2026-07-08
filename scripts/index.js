@@ -416,6 +416,14 @@ class FormValidator {
     errorElement.textContent = "";
   }
 
+  _checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this._showInputError(inputElement);
+    } else {
+      this._hideInputError(inputElement);
+    }
+  }
+
   _submitElement(inputList, submitButton) {
     submitButton.disabled = !inputList.every((input) => input.validity.valid);
   }
