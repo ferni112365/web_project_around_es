@@ -386,6 +386,12 @@ class FormValidator {
   constructor(configurationValidationForm, form) {
     this._configurationValidationForm = configurationValidationForm;
     this._form = form;
+    this._inputList = this._form.querySelectorAll(
+      this._configurationValidationForm.inputSelector,
+    );
+    this._submitButton = this._form.querySelector(
+      this._configurationValidationForm.submitButton,
+    );
   }
 
   _showInputError() {}
