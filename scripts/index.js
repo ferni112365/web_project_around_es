@@ -383,6 +383,7 @@ const form = document.querySelector("#edit-profile-form");
 const newCardForm = document.querySelector("#new-card-form");
 
 class FormValidator {
+  // paso 1
   constructor(configurationValidationForm, form) {
     this._configurationValidationForm = configurationValidationForm;
     this._form = form;
@@ -394,6 +395,7 @@ class FormValidator {
     );
   }
 
+  // paso 2
   _showInputError(inputElement) {
     const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(
@@ -405,6 +407,7 @@ class FormValidator {
     errorElement.textContent = inputElement.validationMessage;
   }
 
+  // paso 3
   _hideInputError(inputElement) {
     const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(
@@ -416,6 +419,7 @@ class FormValidator {
     errorElement.textContent = "";
   }
 
+  // paso 4
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement);
@@ -424,8 +428,11 @@ class FormValidator {
     }
   }
 
-  _submitElement(inputList, submitButton) {
-    submitButton.disabled = !inputList.every((input) => input.validity.valid);
+  // paso 5
+  _toggleButtonState() {
+    this._submitButton.disabled = !this._inputList.every(
+      (input) => input.validity.valid,
+    );
   }
 
   setEventListeners() {
