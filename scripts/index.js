@@ -436,8 +436,9 @@ class FormValidator {
   }
 
   setEventListeners() {
-    this._inputList.forEach((input) => {
+    this._inputList.forEach((inputElement) => {
       input.addEventListener("input", () => {
+        this._toggleButtonState(input);
         if (!input.validity.valid) {
           this._showInputError(input);
         } else {
@@ -445,5 +446,6 @@ class FormValidator {
         }
       });
     });
+    this._toggleButtonState(input);
   }
 }
