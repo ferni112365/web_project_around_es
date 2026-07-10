@@ -430,7 +430,7 @@ class FormValidator {
 
   // paso 5
   _toggleButtonState() {
-    this._submitButton.disabled = !this._inputList.every(
+    this._submitButton.disabled = !Array.from(this._inputList).every(
       (input) => input.validity.valid,
     );
   }
