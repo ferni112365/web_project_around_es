@@ -435,15 +435,12 @@ class FormValidator {
     );
   }
 
+  // paso 6
   setEventListeners() {
     this._inputList.forEach((input) => {
       input.addEventListener("input", () => {
+        this._checkInputValidity(input);
         this._toggleButtonState();
-        if (!input.validity.valid) {
-          this._showInputError(input);
-        } else {
-          this._hideInputError(input);
-        }
       });
     });
     this._toggleButtonState();
