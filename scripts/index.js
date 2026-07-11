@@ -97,45 +97,45 @@ function handleProfileFormSubmit(evt) {
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
 
-// function getCardElement(name, link) {
-//   const cardElement = cardTemplate.content.cloneNode(true);
-//   const cardTitle = cardElement.querySelector(".card__title");
-//   const cardImage = cardElement.querySelector(".card__image");
+function getCardElement(name, link) {
+  const cardElement = cardTemplate.content.cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardImage = cardElement.querySelector(".card__image");
 
-// cardImage.addEventListener("click", function () {
-//   modalCaption.textContent = name;
-//   modalImage.alt = name;
-//   modalImage.src = link;
-//   openModal(popUpImage);
-// });
+  cardImage.addEventListener("click", function () {
+    modalCaption.textContent = name;
+    modalImage.alt = name;
+    modalImage.src = link;
+    openModal(popUpImage);
+  });
 
-// cardImage.src = link;
-// cardImage.alt = name;
-// cardTitle.textContent = name;
+  cardImage.src = link;
+  cardImage.alt = name;
+  cardTitle.textContent = name;
 
-//   const likeButtonCard = cardElement.querySelector(".card__like-button");
-//   likeButtonCard.addEventListener("click", function () {
-//     likeButtonCard.classList.toggle("card__like-button_is-active");
-//   });
+  const likeButtonCard = cardElement.querySelector(".card__like-button");
+  likeButtonCard.addEventListener("click", function () {
+    likeButtonCard.classList.toggle("card__like-button_is-active");
+  });
 
-//   const deleteButtonCard = cardElement.querySelector(".card__delete-button");
-//   deleteButtonCard.addEventListener("click", function () {
-//     const cardToDelete = deleteButtonCard.closest(".card");
-//     cardToDelete.remove();
-//   });
+  const deleteButtonCard = cardElement.querySelector(".card__delete-button");
+  deleteButtonCard.addEventListener("click", function () {
+    const cardToDelete = deleteButtonCard.closest(".card");
+    cardToDelete.remove();
+  });
 
-//   return cardElement;
-// }
+  return cardElement;
+}
 
-// function renderCard(name, link, container) {
-//   const cardElement = getCardElement(name, link);
-//   container.prepend(cardElement);
-// }
+function renderCard(name, link, container) {
+  const cardElement = getCardElement(name, link);
+  container.prepend(cardElement);
+}
 
-// const container = document.querySelector(".cards__list");
-// initialCards.forEach((card) => {
-//   renderCard(card.name, card.link, container);
-// });
+const container = document.querySelector(".cards__list");
+initialCards.forEach((card) => {
+  renderCard(card.name, card.link, container);
+});
 
 const openModalCard = document.querySelector(".profile__add-button");
 const newCardPopup = document.querySelector("#new-card-popup");
