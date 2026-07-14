@@ -169,7 +169,12 @@ function handleCardFormSubmit(evt) {
   // newPlace.reset();
 
   const data = { name: newTitleValue, link: newlinkValue };
-  const myCard = new Card(data, "#card-template", openModal);
+  const myCard = new Card(data, "#card-template", function (name, link) {
+    modalCaption.textContent = name;
+    modalImage.alt = name;
+    modalImage.src = link;
+    openModal(popUpImage);
+  });
   const cardElement = myCard.generateCard();
   cardsList.append(cardElement);
 
