@@ -330,3 +330,7 @@ const newCardForm = document.querySelector("#new-card-form");
 //  Crear las instancias para cada formulario
 const myforms = new FormValidator(configurationValidationForm, form);
 const myNewCards = new FormValidator(configurationValidationForm, newCardForm);
+
+//  Activar las instancias
+myforms.setEventListeners();
+myNewCards.setEventListeners();
