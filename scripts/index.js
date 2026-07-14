@@ -229,6 +229,12 @@ initialCards.forEach((item) => {
   document.querySelector(".cards__list").append(cardElement);
 });
 
+// crear la instancia de Card
+const myCards = new Card(data, cardSelector, handleOpenPopup);
+
+// activar la instancia de Card
+myCards.generateCard();
+
 // Ejercicio2;
 const configurationValidationForm = {
   inputSelector: ".popup__input",
