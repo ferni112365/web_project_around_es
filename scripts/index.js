@@ -135,9 +135,9 @@ function renderCard(name, link, container) {
   container.prepend(cardElement);
 }
 
-const container = document.querySelector(".cards__list");
+const cardsList = document.querySelector(".cards__list");
 initialCards.forEach((card) => {
-  renderCard(card.name, card.link, container);
+  renderCard(card.name, card.link, cardsList);
 });
 
 const openModalCard = document.querySelector(".profile__add-button");
@@ -155,6 +155,7 @@ closeButtonCard.addEventListener("click", function () {
 });
 
 let newPlace = newCardPopup.querySelector("#new-card-form");
+
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   let namePlace = newCardPopup.querySelector(".popup__input_type_card-name");
@@ -163,7 +164,15 @@ function handleCardFormSubmit(evt) {
   let newTitleValue = namePlace.value;
   let newlinkValue = placeholder.value;
 
-  renderCard(newTitleValue, newlinkValue, container);
+  // renderCard(newTitleValue, newlinkValue, container);
+  // closeModal(newCardPopup);
+  // newPlace.reset();
+
+  const data = { name: newTitleValue, link: newlinkValue };
+  const myCard = new Card(data, "#card-template", openModal);
+  const cardElement = myCard.generateCard();
+  cardsList.append(cardElement);
+
   closeModal(newCardPopup);
   newPlace.reset();
 }
@@ -229,11 +238,11 @@ initialCards.forEach((item) => {
   document.querySelector(".cards__list").append(cardElement);
 });
 
-// crear la instancia de Card
-const myCards = new Card(data, cardSelector, handleOpenPopup);
+// // crear la instancia de Card
+// const myCards = new Card(data, cardSelector, handleOpenPopup);
 
-// activar la instancia de Card
-myCards.generateCard();
+// // activar la instancia de Card
+// myCards.generateCard();
 
 // Ejercicio2;
 const configurationValidationForm = {
