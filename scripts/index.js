@@ -323,5 +323,10 @@ const configurationValidationForm = {
   popupInputError: "popup__input_type_error",
 };
 
+//  Seleccionar los formularios
 const form = document.querySelector("#edit-profile-form");
 const newCardForm = document.querySelector("#new-card-form");
+
+//  Crear las instancias para cada formulario
+const myforms = new FormValidator(configurationValidationForm, form);
+const myNewCards = new FormValidator(configurationValidationForm, newCardForm);
