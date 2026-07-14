@@ -1,4 +1,4 @@
-import { Card } from "./Card";
+import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
 const initialCards = [
@@ -232,50 +232,50 @@ const submitButton = formNewCard.querySelector(".popup__button");
 const nameInputError = formNewCard.querySelector("#place-name-input-error");
 const linkInputError = formNewCard.querySelector("#link-input-error");
 
-function showInputError(formElement, inputElement, errorMessage) {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.add("popup__input_type_error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__input-error_active");
-}
+// function showInputError(formElement, inputElement, errorMessage) {
+//   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+//   inputElement.classList.add("popup__input_type_error");
+//   errorElement.textContent = errorMessage;
+//   errorElement.classList.add("form__input-error_active");
+// }
 
-function hideInputError(formElement, inputElement) {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.remove("popup__input_type_error");
-  errorElement.classList.remove("form__input-error_active");
-  errorElement.textContent = "";
-}
+// function hideInputError(formElement, inputElement) {
+//   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+//   inputElement.classList.remove("popup__input_type_error");
+//   errorElement.classList.remove("form__input-error_active");
+//   errorElement.textContent = "";
+// }
 
-function hasInvalidInput(inputList) {
-  return inputList.some((input) => {
-    return !input.validity.valid;
-  });
-}
+// function hasInvalidInput(inputList) {
+//   return inputList.some((input) => {
+//     return !input.validity.valid;
+//   });
+// }
 
-function toggleButtonState(inputList, buttonElement) {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
-  } else {
-    buttonElement.disabled = false;
-  }
-}
+// function toggleButtonState(inputList, buttonElement) {
+//   if (hasInvalidInput(inputList)) {
+//     buttonElement.disabled = true;
+//   } else {
+//     buttonElement.disabled = false;
+//   }
+// }
 
 const inputListNewCard = [nameForm, linkForm];
 
-function enableValidation() {
-  inputListNewCard.forEach((input) => {
-    input.addEventListener("input", function () {
-      if (!input.validity.valid) {
-        showInputError(formNewCard, input, input.validationMessage);
-      } else {
-        hideInputError(formNewCard, input);
-      }
-      toggleButtonState(inputListNewCard, submitButton);
-    });
-  });
-}
+// function enableValidation() {
+//   inputListNewCard.forEach((input) => {
+//     input.addEventListener("input", function () {
+//       if (!input.validity.valid) {
+//         showInputError(formNewCard, input, input.validationMessage);
+//       } else {
+//         hideInputError(formNewCard, input);
+//       }
+//       toggleButtonState(inputListNewCard, submitButton);
+//     });
+//   });
+// }
 
-enableValidation();
+// enableValidation();
 
 const superposition = document.querySelectorAll(".popup");
 
@@ -302,6 +302,7 @@ document.addEventListener("keydown", function (event) {
     });
 });
 
+// Ejercicio 1
 const popupImagen = document.querySelector("#image-popup");
 
 initialCards.forEach((item) => {
