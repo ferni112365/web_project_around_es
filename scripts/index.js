@@ -177,51 +177,7 @@ const nameInput = editForm.querySelector(".popup__input_type_name");
 const aboutInput = editForm.querySelector(".popup__input_type_description");
 const saveButton = editForm.querySelector(".popup__button");
 
-function showInputError(formElement, inputElement, errorMessage) {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.add("popup__input_type_error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__input-error_active");
-}
-
-function hideInputError(formElement, inputElement) {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.remove("popup__input_type_error");
-  errorElement.classList.remove("form__input-error_active");
-  errorElement.textContent = "";
-}
-
-function hasInvalidInput(inputList) {
-  return inputList.some((input) => {
-    return !input.validity.valid;
-  });
-}
-
-// otra opción de código más concisa podría ser:
-// function hasInvalidInput(inputList) {
-//   return inputList.some((input) => !input.validity.valid);
-// }
-
-function toggleButtonState(inputList, buttonElement) {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
-  } else {
-    buttonElement.disabled = false;
-  }
-}
-
 const inputList = Array.from(editForm.querySelectorAll(".popup__input"));
-
-inputList.forEach((input) => {
-  input.addEventListener("input", function () {
-    if (!input.validity.valid) {
-      showInputError(editForm, input, input.validationMessage);
-    } else {
-      hideInputError(editForm, input);
-    }
-    toggleButtonState(inputList, saveButton);
-  });
-});
 
 // formulario: nueva tarjeta
 const editNewcardPopup = document.querySelector("#new-card-popup");
@@ -232,50 +188,7 @@ const submitButton = formNewCard.querySelector(".popup__button");
 const nameInputError = formNewCard.querySelector("#place-name-input-error");
 const linkInputError = formNewCard.querySelector("#link-input-error");
 
-// function showInputError(formElement, inputElement, errorMessage) {
-//   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-//   inputElement.classList.add("popup__input_type_error");
-//   errorElement.textContent = errorMessage;
-//   errorElement.classList.add("form__input-error_active");
-// }
-
-// function hideInputError(formElement, inputElement) {
-//   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-//   inputElement.classList.remove("popup__input_type_error");
-//   errorElement.classList.remove("form__input-error_active");
-//   errorElement.textContent = "";
-// }
-
-// function hasInvalidInput(inputList) {
-//   return inputList.some((input) => {
-//     return !input.validity.valid;
-//   });
-// }
-
-// function toggleButtonState(inputList, buttonElement) {
-//   if (hasInvalidInput(inputList)) {
-//     buttonElement.disabled = true;
-//   } else {
-//     buttonElement.disabled = false;
-//   }
-// }
-
 const inputListNewCard = [nameForm, linkForm];
-
-// function enableValidation() {
-//   inputListNewCard.forEach((input) => {
-//     input.addEventListener("input", function () {
-//       if (!input.validity.valid) {
-//         showInputError(formNewCard, input, input.validationMessage);
-//       } else {
-//         hideInputError(formNewCard, input);
-//       }
-//       toggleButtonState(inputListNewCard, submitButton);
-//     });
-//   });
-// }
-
-// enableValidation();
 
 const superposition = document.querySelectorAll(".popup");
 
