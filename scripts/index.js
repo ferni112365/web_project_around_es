@@ -1,5 +1,7 @@
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
+import { openModal, closeModal } from "./utils.js";
+// import { closeModal } from "./utils.js";
 
 const initialCards = [
   {
@@ -37,14 +39,6 @@ const popUpImage = document.querySelector("#image-popup");
 const modalImage = popUpImage.querySelector(".popup__image");
 const modalCaption = popUpImage.querySelector(".popup__caption");
 const modalCloseBtn = popUpImage.querySelector(".popup__close");
-
-function openModal(modal) {
-  modal.classList.add("popup_is-opened");
-}
-
-function closeModal(modal) {
-  modal.classList.remove("popup_is-opened");
-}
 
 profileEditBtn.addEventListener("click", function () {
   handleOpenEditModal();
@@ -160,27 +154,24 @@ const inputListNewCard = [nameForm, linkForm];
 
 const superposition = document.querySelectorAll(".popup");
 
-superposition.forEach((windowPopup) => {
-  windowPopup.addEventListener("click", function (event) {
-    console.log(event.target);
-    console.log(event.currentTarget);
-
+// abrir;
+superposition.forEach((popupWindow) => {
+  popupWindow.addEventListener("click", function (event) {
     if (event.target === event.currentTarget) {
-      closeModal(windowPopup);
+      closeModal(popupWindow);
     }
   });
 });
 
 const popups = document.querySelectorAll(".popup");
 
+// cerrar
 document.addEventListener("keydown", function (event) {
-  console.log(event.target);
-  console.log(event.currentTarget);
-
-  if (event.key === "Escape")
+  if (event.key === "Escape") {
     popups.forEach((popupWindow) => {
-      popupWindow.classList.remove("popup_is-opened");
+      closeModal(popupWindow);
     });
+  }
 });
 
 // Ejercicio 1
