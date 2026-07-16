@@ -15,9 +15,14 @@ export function openModal(modal) {
   handleKeydown = (event) => {
     if (event.key === "Escape") {
       closeModal(modal);
-      document.removeEventListener("keydown", handleKeydown);
     }
   };
 
   document.addEventListener("keydown", handleKeydown);
+}
+
+export function closeModal(modal) {
+  modal.classList.remove("popup_is-opened");
+
+  document.removeEventListener("keydown", handleKeydown);
 }
