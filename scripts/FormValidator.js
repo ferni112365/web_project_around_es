@@ -1,5 +1,4 @@
 export class FormValidator {
-  // paso 1
   constructor(configurationValidationForm, form) {
     this._configurationValidationForm = configurationValidationForm;
     this._form = form;
@@ -11,7 +10,6 @@ export class FormValidator {
     );
   }
 
-  // paso 2
   _showInputError(inputElement) {
     const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(
@@ -23,7 +21,6 @@ export class FormValidator {
     errorElement.textContent = inputElement.validationMessage;
   }
 
-  // paso 3
   _hideInputError(inputElement) {
     const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(
@@ -35,7 +32,6 @@ export class FormValidator {
     errorElement.textContent = "";
   }
 
-  // paso 4
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement);
@@ -44,14 +40,12 @@ export class FormValidator {
     }
   }
 
-  // paso 5
   _toggleButtonState() {
     this._submitButton.disabled = !Array.from(this._inputList).every(
       (input) => input.validity.valid,
     );
   }
 
-  // paso 6
   setEventListeners() {
     this._inputList.forEach((input) => {
       input.addEventListener("input", () => {

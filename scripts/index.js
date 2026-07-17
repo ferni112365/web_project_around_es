@@ -1,7 +1,6 @@
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 import { openModal, closeModal } from "./utils.js";
-// import { closeModal } from "./utils.js";
 
 const initialCards = [
   {
@@ -132,7 +131,6 @@ function handleCardFormSubmit(evt) {
 
 newPlace.addEventListener("submit", handleCardFormSubmit);
 
-// formulario: editar perfil
 const editProfilePopup = document.querySelector("#edit-popup");
 const editForm = editProfilePopup.querySelector(".popup__form");
 const nameInput = editForm.querySelector(".popup__input_type_name");
@@ -141,7 +139,6 @@ const saveButton = editForm.querySelector(".popup__button");
 
 const inputList = Array.from(editForm.querySelectorAll(".popup__input"));
 
-// formulario: nueva tarjeta
 const editNewcardPopup = document.querySelector("#new-card-popup");
 const formNewCard = editNewcardPopup.querySelector(".popup__form");
 const nameForm = formNewCard.querySelector(".popup__input_type_card-name");
@@ -154,7 +151,6 @@ const inputListNewCard = [nameForm, linkForm];
 
 const superposition = document.querySelectorAll(".popup");
 
-// abrir;
 superposition.forEach((popupWindow) => {
   popupWindow.addEventListener("click", function (event) {
     if (event.target === event.currentTarget) {
@@ -165,7 +161,6 @@ superposition.forEach((popupWindow) => {
 
 const popups = document.querySelectorAll(".popup");
 
-// cerrar
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     popups.forEach((popupWindow) => {
@@ -174,7 +169,6 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// Ejercicio 1
 const popupImagen = document.querySelector("#image-popup");
 
 initialCards.forEach((item) => {
@@ -188,7 +182,6 @@ initialCards.forEach((item) => {
   document.querySelector(".cards__list").append(cardElement);
 });
 
-// Ejercicio2;
 const configurationValidationForm = {
   inputSelector: ".popup__input",
   submitButton: ".popup__button",
@@ -196,14 +189,11 @@ const configurationValidationForm = {
   popupInputError: "popup__input_type_error",
 };
 
-//  Seleccionar los formularios
 const form = document.querySelector("#edit-profile-form");
 const newCardForm = document.querySelector("#new-card-form");
 
-//  Crear las instancias para cada formulario
 const myforms = new FormValidator(configurationValidationForm, form);
 const myNewCards = new FormValidator(configurationValidationForm, newCardForm);
 
-//  Activar las instancias
 myforms.setEventListeners();
 myNewCards.setEventListeners();
