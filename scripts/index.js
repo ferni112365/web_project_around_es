@@ -131,24 +131,6 @@ function handleCardFormSubmit(evt) {
 
 newPlace.addEventListener("submit", handleCardFormSubmit);
 
-const editProfilePopup = document.querySelector("#edit-popup");
-const editForm = editProfilePopup.querySelector(".popup__form");
-const nameInput = editForm.querySelector(".popup__input_type_name");
-const aboutInput = editForm.querySelector(".popup__input_type_description");
-const saveButton = editForm.querySelector(".popup__button");
-
-const inputList = Array.from(editForm.querySelectorAll(".popup__input"));
-
-const editNewcardPopup = document.querySelector("#new-card-popup");
-const formNewCard = editNewcardPopup.querySelector(".popup__form");
-const nameForm = formNewCard.querySelector(".popup__input_type_card-name");
-const linkForm = formNewCard.querySelector(".popup__input_type_url");
-const submitButton = formNewCard.querySelector(".popup__button");
-const nameInputError = formNewCard.querySelector("#place-name-input-error");
-const linkInputError = formNewCard.querySelector("#link-input-error");
-
-const inputListNewCard = [nameForm, linkForm];
-
 const popupImagen = document.querySelector("#image-popup");
 
 initialCards.forEach((item) => {
