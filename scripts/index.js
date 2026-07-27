@@ -149,26 +149,6 @@ const linkInputError = formNewCard.querySelector("#link-input-error");
 
 const inputListNewCard = [nameForm, linkForm];
 
-const superposition = document.querySelectorAll(".popup");
-
-superposition.forEach((popupWindow) => {
-  popupWindow.addEventListener("click", function (event) {
-    if (event.target === event.currentTarget) {
-      closeModal(popupWindow);
-    }
-  });
-});
-
-const popups = document.querySelectorAll(".popup");
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    popups.forEach((popupWindow) => {
-      closeModal(popupWindow);
-    });
-  }
-});
-
 const popupImagen = document.querySelector("#image-popup");
 
 initialCards.forEach((item) => {
