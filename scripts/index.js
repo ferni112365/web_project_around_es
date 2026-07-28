@@ -107,6 +107,13 @@ closeButtonCard.addEventListener("click", function () {
 
 let newPlace = newCardPopup.querySelector("#new-card-form");
 
+function handleCardImageClick(name, link) {
+  modalImage.src = link;
+  modalImage.alt = name;
+  modalCaption.textContent = name;
+  openModal(popUpImage);
+}
+
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   let namePlace = newCardPopup.querySelector(".popup__input_type_card-name");
@@ -116,12 +123,7 @@ function handleCardFormSubmit(evt) {
   let newlinkValue = placeholder.value;
 
   const data = { name: newTitleValue, link: newlinkValue };
-  const myCard = new Card(data, "#card-template", function (name, link) {
-    modalCaption.textContent = name;
-    modalImage.alt = name;
-    modalImage.src = link;
-    openModal(popUpImage);
-  });
+  const myCard = new Card(data, "#card-template", handleCardImageClick);
   const cardElement = myCard.generateCard();
   cardsList.append(cardElement);
 
@@ -134,11 +136,7 @@ newPlace.addEventListener("submit", handleCardFormSubmit);
 const popupImagen = document.querySelector("#image-popup");
 
 initialCards.forEach((item) => {
-  const card = new Card(item, "#card-template", (name, link) => {
-    modalImage.src = link;
-    modalCaption.textContent = name;
-    openModal(popupImagen);
-  });
+  const card = new Card(item, "#card-template", handleCardImageClick);
 
   const cardElement = card.generateCard();
   document.querySelector(".cards__list").append(cardElement);
