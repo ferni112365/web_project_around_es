@@ -9,7 +9,11 @@ class Section {
     this.#container = document.querySelector(containerSelector);
   }
 
-  renderer()
+  rendererItems() {
+    this.#items.forEach((element) => {
+      this.#renderer(element);
+    });
+  }
 
-  addItem()
+  addItem() {}
 }
