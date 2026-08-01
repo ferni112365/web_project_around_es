@@ -1,6 +1,7 @@
 class Popup {
   #popupSelector;
   #handlePopupClose;
+  #closeButton;
 
   constructor(popupSelector) {
     this.#popupSelector = popupSelector;
@@ -28,5 +29,7 @@ class Popup {
     }
   }
 
-  setEventListeners() {}
+  setEventListeners() {
+    this.#closeButton.addEventListener("click", this.close.bind(this));
+  }
 }
