@@ -5,6 +5,7 @@ class Popup {
   constructor(popupSelector) {
     this.#popupSelector = popupSelector;
     this.#handlePopupClose = this.#handleEscClose.bind(this);
+    this.#closeButton = this.#popupSelector.querySelector(".popup__close");
   }
 
   open() {
@@ -26,4 +27,6 @@ class Popup {
       }
     }
   }
+
+  setEventListeners() {}
 }
