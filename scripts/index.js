@@ -105,7 +105,7 @@ console.log(closeButtonCard);
 //   closeModal(newCardPopup);
 // });
 
-let newPlace = newCardPopup.querySelector("#new-card-form");
+// let newPlace = newCardPopup.querySelector("#new-card-form");
 
 openModalCard.addEventListener("click", function () {
   newCardPopupInstance.open();
