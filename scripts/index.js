@@ -1,6 +1,7 @@
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 import { openModal, closeModal } from "./utils.js";
+import { Popup } from "./Popup.js";
 
 const initialCards = [
   {
@@ -96,16 +97,25 @@ const newCardPopup = document.querySelector("#new-card-popup");
 const closeButtonCard = newCardPopup.querySelector(".popup__close");
 console.log(closeButtonCard);
 
+// openModalCard.addEventListener("click", function () {
+//   openModal(newCardPopup);
+// });
+
+// closeButtonCard.addEventListener("click", function () {
+//   closeModal(newCardPopup);
+// });
+
+let newPlace = newCardPopup.querySelector("#new-card-form");
+
 openModalCard.addEventListener("click", function () {
-  openModal(newCardPopup);
+  newCardPopupInstance.open();
 });
 
 closeButtonCard.addEventListener("click", function () {
-  console.log("Botón de cerrar clickeado");
-  closeModal(newCardPopup);
+  newCardPopupInstance.close();
 });
 
-let newPlace = newCardPopup.querySelector("#new-card-form");
+const newCardPopupInstance = new Popup("#new-card-popup");
 
 function handleCardImageClick(name, link) {
   modalImage.src = link;

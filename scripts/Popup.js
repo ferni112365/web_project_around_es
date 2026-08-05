@@ -1,4 +1,4 @@
-class Popup {
+export class Popup {
   #popupSelector;
   #handlePopupClose;
   #closeButton;
@@ -9,15 +9,13 @@ class Popup {
     this.#handlePopupClose = this.#handleEscClose.bind(this);
     this.#closeButton = this.#popupSelector.querySelector(".popup__close");
     this.#popupContent = this.#popupSelector.querySelector(".popup__content");
+
+    this.setEventListeners();
   }
 
   open() {
     this.#popupSelector.classList.add("popup_is-opened");
     document.addEventListener("keydown", this.#handlePopupClose);
-    // this.popupSelector.addEventListener(
-    //   "click",
-    //   this.setEventListeners.bind(this),
-    // );
   }
 
   close() {
@@ -40,10 +38,25 @@ class Popup {
       this.close();
     });
 
-    this.#popupContent.addEventListener("click", (evt) => {
+    this.#popupSelector.addEventListener("click", (evt) => {
+      console.log("clic detectado1", evt.target);
+      console.log("clic detectado2", evt.currentTarget);
       if (evt.target === evt.currentTarget) {
         this.close();
       }
     });
   }
 }
+
+// newCardPopupInstance.open();
+// newCardPopupInstance.close();
+
+// openModalCard.addEventListener("click", function () {
+//   newCardPopupInstance.open();
+// });
+
+// closeButtonCard.addEventListener("click", function () {
+//   newCardPopupInstance.close();
+// });
+
+// const newCardPopupInstance = new Popup("#new-card-popup");
