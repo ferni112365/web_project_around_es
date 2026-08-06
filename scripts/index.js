@@ -97,16 +97,6 @@ const newCardPopup = document.querySelector("#new-card-popup");
 const closeButtonCard = newCardPopup.querySelector(".popup__close");
 console.log(closeButtonCard);
 
-// openModalCard.addEventListener("click", function () {
-//   openModal(newCardPopup);
-// });
-
-// closeButtonCard.addEventListener("click", function () {
-//   closeModal(newCardPopup);
-// });
-
-// let newPlace = newCardPopup.querySelector("#new-card-form");
-
 openModalCard.addEventListener("click", function () {
   newCardPopupInstance.open();
 });
