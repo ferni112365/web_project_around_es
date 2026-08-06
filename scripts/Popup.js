@@ -46,6 +46,10 @@ export class Popup {
       }
     });
   }
+
+  get popupElement() {
+    return this.#popupSelector;
+  }
 }
 
 // newCardPopupInstance.open();
