@@ -39,8 +39,6 @@ export class Popup {
     });
 
     this.#popupSelector.addEventListener("click", (evt) => {
-      console.log("clic detectado1", evt.target);
-      console.log("clic detectado2", evt.currentTarget);
       if (evt.target === evt.currentTarget) {
         this.close();
       }
@@ -51,16 +49,3 @@ export class Popup {
     return this.#popupSelector;
   }
 }
-
-// newCardPopupInstance.open();
-// newCardPopupInstance.close();
-
-// openModalCard.addEventListener("click", function () {
-//   newCardPopupInstance.open();
-// });
-
-// closeButtonCard.addEventListener("click", function () {
-//   newCardPopupInstance.close();
-// });
-
-// const newCardPopupInstance = new Popup("#new-card-popup");
