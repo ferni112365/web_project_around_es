@@ -2,6 +2,7 @@ import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 import { openModal, closeModal } from "./utils.js";
 import { Popup } from "./Popup.js";
+import { PopupWithForm } from "./PopupWithForm.js";
 
 const initialCards = [
   {
@@ -105,7 +106,21 @@ closeButtonCard.addEventListener("click", function () {
   newCardPopupInstance.close();
 });
 
-const newCardPopupInstance = new Popup("#new-card-popup");
+// numero2
+// debía cambiar de Popup a PopupWithForm
+// ahota también maneje el formulario (submit, reset, etc.)
+// no solo abrir y cerrar
+// newCardPopupInstance se enlaza con openModalCard y closeButtonCard
+// const newCardPopupInstance = new Popup("#new-card-popup");
+
+const newCardPopupInstance = new PopupWithForm(
+  "#new-card-popup",
+  handleCardFormSubmit,
+);
+
+newPopupWithForm.setEventListeners();
+
+// newCardPopupInstance.setEventListeners();
 
 function handleCardImageClick(name, link) {
   modalImage.src = link;
@@ -128,10 +143,10 @@ function handleCardFormSubmit(evt) {
   cardsList.append(cardElement);
 
   closeModal(newCardPopup);
-  newPlace.reset();
+  // newPlace.reset();
 }
 
-newPlace.addEventListener("submit", handleCardFormSubmit);
+// newPlace.addEventListener("submit", handleCardFormSubmit);
 
 const popupImagen = document.querySelector("#image-popup");
 
