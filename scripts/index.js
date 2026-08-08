@@ -70,23 +70,25 @@ function handleOpenEditModal() {
 }
 
 let formElement = editProfileModal.querySelector("#edit-profile-form");
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  let nameInput = editProfileModal.querySelector(".popup__input_type_name");
-  let jobInput = editProfileModal.querySelector(
-    ".popup__input_type_description",
-  );
+function handleProfileFormSubmit(formValues) {
+  // evt.preventDefault();
+  // let nameInput = editProfileModal.querySelector(".popup__input_type_name");
+  // let jobInput = editProfileModal.querySelector(
+  //   ".popup__input_type_description",
+  // );
 
-  let newNameValue = nameInput.value;
-  let newDescriptionValue = jobInput.value;
+  // let newNameValue = nameInput.value;
+  // let newDescriptionValue = jobInput.value;
+
+  // let inputValues = this._getInputValues();
 
   let nameValue = document.querySelector(".profile__title");
   let descriptionValue = document.querySelector(".profile__description");
 
-  nameValue.textContent = newNameValue;
-  descriptionValue.textContent = newDescriptionValue;
+  nameValue.textContent = formValues.name;
+  descriptionValue.textContent = formValues.description;
 
-  closeModal(editProfileModal);
+  // closeModal(editProfileModal);
 }
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
@@ -105,12 +107,21 @@ closeButtonCard.addEventListener("click", function () {
   newCardPopupInstance.close();
 });
 
+//formulario "nueva tarjeta"
 const newCardPopupInstance = new PopupWithForm(
   "#new-card-popup",
   handleCardFormSubmit,
 );
 
 newCardPopupInstance.setEventListeners();
+
+//formulario "editar perfil"
+const newEditProfilePopupInstance = new PopupWithForm(
+  "#edit-popup",
+  handleProfileFormSubmit,
+);
+
+newEditProfilePopupInstance.setEventListeners();
 
 function handleCardImageClick(name, link) {
   modalImage.src = link;
