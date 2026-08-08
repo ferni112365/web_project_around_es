@@ -8,6 +8,8 @@ export class PopupWithForm extends Popup {
     this.handleFormSubmit = handleFormSubmit;
     this.#formElement = this.popupElement.querySelector(".popup__form");
     this.inputList = this.popupElement.querySelectorAll(".popup__input");
+
+    super.setEventListeners();
   }
 
   _getInputValues() {

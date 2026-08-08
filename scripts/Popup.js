@@ -10,7 +10,7 @@ export class Popup {
     this.#closeButton = this.#popupSelector.querySelector(".popup__close");
     this.#popupContent = this.#popupSelector.querySelector(".popup__content");
 
-    this.setEventListeners();
+    // this.setEventListeners();
   }
 
   open() {

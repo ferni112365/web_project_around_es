@@ -96,7 +96,6 @@ const cardsList = document.querySelector(".cards__list");
 const openModalCard = document.querySelector(".profile__add-button");
 const newCardPopup = document.querySelector("#new-card-popup");
 const closeButtonCard = newCardPopup.querySelector(".popup__close");
-console.log(closeButtonCard);
 
 openModalCard.addEventListener("click", function () {
   newCardPopupInstance.open();
