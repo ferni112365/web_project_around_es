@@ -117,7 +117,7 @@ const newCardPopupInstance = new PopupWithForm(
   handleCardFormSubmit,
 );
 
-newPopupWithForm.setEventListeners();
+newCardPopupInstance.setEventListeners();
 
 // newCardPopupInstance.setEventListeners();
 
