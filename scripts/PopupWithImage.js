@@ -7,9 +7,13 @@ class PopupWithImage extends Popup {
     this.description = this.popupElement.querySelector(".popup__caption");
   }
 
-  open(link, name) {
+  open(name, link) {
     // aquí defines qué hace este popup en particular al abrirse,
     // por ejemplo asignar el src y alt de la imagen
-    super.open(); // para reutilizar la lógica de abrir el popup base
+    this.image.src = link;
+    this.image.alt = name;
+    this.description.textContent = name;
+
+    super.open();
   }
 }
