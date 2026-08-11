@@ -3,6 +3,7 @@ import { FormValidator } from "./FormValidator.js";
 import { openModal, closeModal } from "./utils.js";
 import { Popup } from "./Popup.js";
 import { PopupWithForm } from "./PopupWithForm.js";
+import { PopupWithImage } from "./PopupWithImage.js";
 
 const initialCards = [
   {
@@ -94,7 +95,7 @@ closeButtonCard.addEventListener("click", function () {
   newCardPopupInstance.close();
 });
 
-//formulario "nueva tarjeta"
+//instancia formulario "nueva tarjeta"
 const newCardPopupInstance = new PopupWithForm(
   "#new-card-popup",
   handleCardFormSubmit,
@@ -102,7 +103,7 @@ const newCardPopupInstance = new PopupWithForm(
 
 newCardPopupInstance.setEventListeners();
 
-//formulario "editar perfil"
+//instancia formulario "editar perfil"
 const newEditProfilePopupInstance = new PopupWithForm(
   "#edit-popup",
   handleProfileFormSubmit,
