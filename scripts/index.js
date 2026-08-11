@@ -112,13 +112,10 @@ const newEditProfilePopupInstance = new PopupWithForm(
 newEditProfilePopupInstance.setEventListeners();
 
 //instancia popup de imagen
-const newPopUpWithImageInstance = new PopupWithImage("#image-popup");
+const newPopUpWithImage = new PopupWithImage("#image-popup");
 
 function handleCardImageClick(name, link) {
-  modalImage.src = link;
-  modalImage.alt = name;
-  modalCaption.textContent = name;
-  openModal(popUpImage);
+  newPopUpWithImageInstance.open(name, link);
 }
 
 function handleCardFormSubmit(evt) {
