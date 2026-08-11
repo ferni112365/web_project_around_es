@@ -37,10 +37,10 @@ const editProfileModal = document.querySelector("#edit-popup");
 const profileCloseBtn = editProfileModal.querySelector(".popup__close");
 const cardTemplate = document.querySelector("#card-template");
 
-const popUpImage = document.querySelector("#image-popup");
-const modalImage = popUpImage.querySelector(".popup__image");
-const modalCaption = popUpImage.querySelector(".popup__caption");
-const modalCloseBtn = popUpImage.querySelector(".popup__close");
+// const popUpImage = document.querySelector("#image-popup");
+// const modalImage = popUpImage.querySelector(".popup__image");
+// const modalCaption = popUpImage.querySelector(".popup__caption");
+// const modalCloseBtn = popUpImage.querySelector(".popup__close");
 
 profileEditBtn.addEventListener("click", function () {
   handleOpenEditModal();
@@ -112,7 +112,9 @@ const newEditProfilePopupInstance = new PopupWithForm(
 newEditProfilePopupInstance.setEventListeners();
 
 //instancia popup de imagen
-const newPopUpWithImage = new PopupWithImage("#image-popup");
+const newPopUpWithImageInstance = new PopupWithImage("#image-popup");
+
+newPopUpWithImageInstance.setEventListeners();
 
 function handleCardImageClick(name, link) {
   newPopUpWithImageInstance.open(name, link);
