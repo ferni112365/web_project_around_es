@@ -12,4 +12,9 @@ class UserInfo {
 
     return userInfo;
   }
+
+  setUserInfo(name, job) {
+    this._userName.textContent = name;
+    this._userDescription.textContent = job;
+  }
 }
