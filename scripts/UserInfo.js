@@ -4,7 +4,12 @@ class UserInfo {
     this._userDescription = document.querySelector(jobSelector);
   }
 
-  getUserInfo() {}
+  getUserInfo() {
+    let userInfo = {
+      name: this._userName.textContent,
+      job: this._userDescription.textContent,
+    };
 
-  setUserInfo() {}
+    return userInfo;
+  }
 }
