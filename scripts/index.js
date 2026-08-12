@@ -46,15 +46,24 @@ profileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
 
+//instancia UserInfo
+const nameSelector = ".profile__title";
+const jobSelector = ".profile__description";
+
+const newUserInfoInstance = new UserInfo({ nameSelector, jobSelector });
+newUserInfoInstance.getUserInfo();
+
 function fillProfileForm() {
   const name = document.querySelector(".profile__title");
   const description = document.querySelector(".profile__description");
+  const userInfor = newUserInfoInstance;
   let editName = document.querySelector(".popup__input_type_name");
   let editDescription = document.querySelector(
     ".popup__input_type_description",
   );
-  editName.value = name.textContent;
-  editDescription.value = description.textContent;
+
+  editName.value = newUserInfoInstance.getUserInfo().name;
+  editDescription.value = newUserInfoInstance.getUserInfo().job;
 }
 
 function handleOpenEditModal() {
