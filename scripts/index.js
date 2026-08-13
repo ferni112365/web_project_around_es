@@ -51,12 +51,8 @@ const nameSelector = ".profile__title";
 const jobSelector = ".profile__description";
 
 const newUserInfoInstance = new UserInfo({ nameSelector, jobSelector });
-// newUserInfoInstance.getUserInfo();
 
 function fillProfileForm() {
-  // const name = document.querySelector(".profile__title");
-  // const description = document.querySelector(".profile__description");
-  // const userInfor = newUserInfoInstance;
   let editName = document.querySelector(".popup__input_type_name");
   let editDescription = document.querySelector(
     ".popup__input_type_description",
