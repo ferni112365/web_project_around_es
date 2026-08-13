@@ -1,10 +1,10 @@
 // ejercicio 1
 export class Card {
-  constructor(data, cardSelector, handleOpenPopup) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._handleOpenPopup = handleOpenPopup;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -42,7 +42,7 @@ export class Card {
     this._element
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleOpenPopup(this._name, this._link);
+        this._handleCardClick(this._name, this._link);
       });
   }
 

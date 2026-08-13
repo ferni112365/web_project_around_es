@@ -51,12 +51,12 @@ const nameSelector = ".profile__title";
 const jobSelector = ".profile__description";
 
 const newUserInfoInstance = new UserInfo({ nameSelector, jobSelector });
-newUserInfoInstance.getUserInfo();
+// newUserInfoInstance.getUserInfo();
 
 function fillProfileForm() {
-  const name = document.querySelector(".profile__title");
-  const description = document.querySelector(".profile__description");
-  const userInfor = newUserInfoInstance;
+  // const name = document.querySelector(".profile__title");
+  // const description = document.querySelector(".profile__description");
+  // const userInfor = newUserInfoInstance;
   let editName = document.querySelector(".popup__input_type_name");
   let editDescription = document.querySelector(
     ".popup__input_type_description",
@@ -101,7 +101,6 @@ const newCardPopupInstance = new PopupWithForm(
   "#new-card-popup",
   handleCardFormSubmit,
 );
-
 newCardPopupInstance.setEventListeners();
 
 //instancia formulario "editar perfil"
@@ -109,12 +108,10 @@ const newEditProfilePopupInstance = new PopupWithForm(
   "#edit-popup",
   handleProfileFormSubmit,
 );
-
 newEditProfilePopupInstance.setEventListeners();
 
 //instancia popup de imagen
 const newPopUpWithImageInstance = new PopupWithImage("#image-popup");
-
 newPopUpWithImageInstance.setEventListeners();
 
 function handleCardImageClick(name, link) {
