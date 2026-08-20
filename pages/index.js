@@ -133,12 +133,18 @@ function handleCardFormSubmit(evt) {
 
 const popupImagen = document.querySelector("#image-popup");
 
-initialCards.forEach((item) => {
-  const card = new Card(item, "#card-template", handleCardImageClick);
+//instancia Section
+const newSectionInstance = new Section(
+  { items: initialCards, renderer: createCard },
+  ".cards__list",
+);
+newSectionInstance.renderItems();
 
+function createCard(item) {
+  const card = new Card(item, "#card-template", handleCardImageClick);
   const cardElement = card.generateCard();
-  document.querySelector(".cards__list").append(cardElement);
-});
+  return cardElement;
+}
 
 const configurationValidationForm = {
   inputSelector: ".popup__input",
