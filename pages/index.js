@@ -114,18 +114,17 @@ function handleCardImageClick(name, link) {
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  let namePlace = newCardPopup.querySelector(".popup__input_type_card-name");
-  let placeholder = newCardPopup.querySelector(".popup__input_type_url");
+  const formValues = newCardPopupInstance._getInputValues();
+  const newTitleValue = formValues["place-name"];
+  const newLinkValue = formValues.link;
 
-  let newTitleValue = namePlace.value;
-  let newlinkValue = placeholder.value;
-
-  const data = { name: newTitleValue, link: newlinkValue };
+  const data = { name: newTitleValue, link: newLinkValue };
   const myCard = new Card(data, "#card-template", handleCardImageClick);
   const cardElement = myCard.generateCard();
   cardsList.append(cardElement);
 
   closeModal(newCardPopup);
+  newCardForm.reset();
 }
 
 const popupImagen = document.querySelector("#image-popup");
