@@ -65,10 +65,9 @@ function fillProfileForm() {
 
 function handleOpenEditModal() {
   fillProfileForm();
-  openModal(editProfileModal);
+  newEditProfilePopupInstance.open();
 }
 
-let formElement = editProfileModal.querySelector("#edit-profile-form");
 function handleProfileFormSubmit(formValues) {
   let nameValue = document.querySelector(".profile__title");
   let descriptionValue = document.querySelector(".profile__description");
@@ -76,8 +75,6 @@ function handleProfileFormSubmit(formValues) {
   nameValue.textContent = formValues.name;
   descriptionValue.textContent = formValues.description;
 }
-
-formElement.addEventListener("submit", handleProfileFormSubmit);
 
 const cardsList = document.querySelector(".cards__list");
 
