@@ -1,4 +1,4 @@
-class Section {
+export class Section {
   #items;
   #renderer;
   #containerSelector;
