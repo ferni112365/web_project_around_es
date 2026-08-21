@@ -113,8 +113,6 @@ function handleCardImageClick(name, link) {
 }
 
 function handleCardFormSubmit(formValues) {
-  // evt.preventDefault();
-  // const formValues = newCardPopupInstance._getInputValues();
   const newTitleValue = formValues.name;
   const newLinkValue = formValues.link;
 
