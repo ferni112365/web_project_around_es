@@ -95,14 +95,12 @@ const newCardPopupInstance = new PopupWithForm(
   "#new-card-popup",
   handleCardFormSubmit,
 );
-newCardPopupInstance.setEventListeners();
 
 //instancia formulario "editar perfil"
 const newEditProfilePopupInstance = new PopupWithForm(
   "#edit-popup",
   handleProfileFormSubmit,
 );
-newEditProfilePopupInstance.setEventListeners();
 
 //instancia popup de imagen
 const newPopUpWithImageInstance = new PopupWithImage("#image-popup");
@@ -113,6 +111,7 @@ function handleCardImageClick(name, link) {
 }
 
 function handleCardFormSubmit(formValues) {
+  console.log(formValues);
   const newTitleValue = formValues.name;
   const newLinkValue = formValues.link;
 
