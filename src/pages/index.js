@@ -114,7 +114,7 @@ function handleCardFormSubmit(formValues) {
   const data = { name: newTitleValue, link: newLinkValue };
   const myCard = new Card(data, "#card-template", handleCardImageClick);
   const cardElement = myCard.generateCard();
-  cardsList.append(cardElement);
+  newSectionInstance.addItem(cardElement);
 
   closeModal(newCardPopup);
   newCardForm.reset();
