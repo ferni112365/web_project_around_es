@@ -69,11 +69,7 @@ function handleOpenEditModal() {
 }
 
 function handleProfileFormSubmit(formValues) {
-  let nameValue = document.querySelector(".profile__title");
-  let descriptionValue = document.querySelector(".profile__description");
-
-  nameValue.textContent = formValues.name;
-  descriptionValue.textContent = formValues.description;
+  newUserInfoInstance.setUserInfo(formValues.name, formValues.description);
 }
 
 const cardsList = document.querySelector(".cards__list");
