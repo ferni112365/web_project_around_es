@@ -116,7 +116,7 @@ function handleCardFormSubmit(formValues) {
   const cardElement = myCard.generateCard();
   newSectionInstance.addItem(cardElement);
 
-  closeModal(newCardPopup);
+  newCardPopupInstance.close();
   newCardForm.reset();
 }
 
