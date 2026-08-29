@@ -5,7 +5,7 @@
 
 .cards__list {
   display: grid;
-  grid-template-columns: repeat(3, 282px);
+  grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
   grid-template-rows: repeat(2, auto);
   justify-content: center;
   grid-gap: 20px 17px;
