@@ -118,6 +118,7 @@ function handleCardFormSubmit(formValues) {
 
   newCardPopupInstance.close();
   newCardForm.reset();
+  myNewCards.updateButtonState();
 }
 
 const popupImagen = document.querySelector("#image-popup");

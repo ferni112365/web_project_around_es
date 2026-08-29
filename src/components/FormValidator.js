@@ -55,4 +55,8 @@ export class FormValidator {
     });
     this._toggleButtonState();
   }
+
+  updateButtonState() {
+    this._toggleButtonState();
+  }
 }
