@@ -1,6 +1,5 @@
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
-import { openModal, closeModal } from "../components/utils.js";
 import { Popup } from "../components/Popup.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
@@ -35,16 +34,9 @@ const initialCards = [
 ];
 
 const profileEditBtn = document.querySelector(".profile__edit-button");
-const editProfileModal = document.querySelector("#edit-popup");
-const profileCloseBtn = editProfileModal.querySelector(".popup__close");
-const cardTemplate = document.querySelector("#card-template");
 
 profileEditBtn.addEventListener("click", function () {
   handleOpenEditModal();
-});
-
-profileCloseBtn.addEventListener("click", function () {
-  closeModal(editProfileModal);
 });
 
 //instancia UserInfo
@@ -71,8 +63,6 @@ function handleOpenEditModal() {
 function handleProfileFormSubmit(formValues) {
   newUserInfoInstance.setUserInfo(formValues.name, formValues.description);
 }
-
-const cardsList = document.querySelector(".cards__list");
 
 const openModalCard = document.querySelector(".profile__add-button");
 const newCardPopup = document.querySelector("#new-card-popup");
@@ -120,8 +110,6 @@ function handleCardFormSubmit(formValues) {
   newCardForm.reset();
   myNewCards.updateButtonState();
 }
-
-const popupImagen = document.querySelector("#image-popup");
 
 //instancia Section
 const newSectionInstance = new Section(
