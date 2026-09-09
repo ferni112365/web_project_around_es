@@ -76,16 +76,35 @@ closeButtonCard.addEventListener("click", function () {
   newCardPopupInstance.close();
 });
 
+//instancias de FormValidator
+const configurationValidationForm = {
+  inputSelector: ".popup__input",
+  submitButton: ".popup__button",
+  formErrorActive: "form__input-error_active",
+  popupInputError: "popup__input_type_error",
+};
+
+const form = document.querySelector("#edit-profile-form");
+const newCardForm = document.querySelector("#new-card-form");
+
+const myforms = new FormValidator(configurationValidationForm, form);
+const myNewCards = new FormValidator(configurationValidationForm, newCardForm);
+
+myforms.setEventListeners();
+myNewCards.setEventListeners();
+
 //instancia formulario "nueva tarjeta"
 const newCardPopupInstance = new PopupWithForm(
   "#new-card-popup",
   handleCardFormSubmit,
+  myNewCards.resetValidation.bind(myNewCards),
 );
 
 //instancia formulario "editar perfil"
 const newEditProfilePopupInstance = new PopupWithForm(
   "#edit-popup",
   handleProfileFormSubmit,
+  myforms.resetValidation,
 );
 
 //instancia popup de imagen
@@ -123,21 +142,3 @@ function createCard(item) {
   const cardElement = card.generateCard();
   return cardElement;
 }
-
-const configurationValidationForm = {
-  inputSelector: ".popup__input",
-  submitButton: ".popup__button",
-  formErrorActive: "form__input-error_active",
-  popupInputError: "popup__input_type_error",
-};
-
-const form = document.querySelector("#edit-profile-form");
-const newCardForm = document.querySelector("#new-card-form");
-
-const myforms = new FormValidator(configurationValidationForm, form);
-const myNewCards = new FormValidator(configurationValidationForm, newCardForm);
-
-myforms.setEventListeners();
-myNewCards.setEventListeners();
-
-myforms.close();
