@@ -3,12 +3,16 @@ export class Popup {
   #handlePopupClose;
   #closeButton;
   #popupContent;
+  #handleFormReset;
+  #resetValidation;
 
-  constructor(popupSelector) {
+  constructor(popupSelector, handleFormReset) {
     this.#popupSelector = document.querySelector(popupSelector);
     this.#handlePopupClose = this.#handleEscClose.bind(this);
     this.#closeButton = this.#popupSelector.querySelector(".popup__close");
     this.#popupContent = this.#popupSelector.querySelector(".popup__content");
+
+    this.#handleFormReset = handleFormReset;
   }
 
   open() {
@@ -19,6 +23,9 @@ export class Popup {
   close() {
     this.#popupSelector.classList.remove("popup_is-opened");
     document.removeEventListener("keydown", this.#handlePopupClose);
+    if (this.#handleFormReset !== undefined) {
+      this.#handleFormReset();
+    }
   }
 
   #handleEscClose(event) {

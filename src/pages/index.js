@@ -139,3 +139,5 @@ const myNewCards = new FormValidator(configurationValidationForm, newCardForm);
 
 myforms.setEventListeners();
 myNewCards.setEventListeners();
+
+myforms.close();
