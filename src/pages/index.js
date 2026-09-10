@@ -107,7 +107,6 @@ function handleCardImageClick(name, link) {
 }
 
 function handleCardFormSubmit(formValues) {
-  console.log(formValues);
   const newTitleValue = formValues.name;
   const newLinkValue = formValues.link;
 
