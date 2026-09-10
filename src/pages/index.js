@@ -39,10 +39,10 @@ const newCardPopup = document.querySelector("#new-card-popup");
 const closeButtonCard = newCardPopup.querySelector(".popup__close");
 const form = document.querySelector("#edit-profile-form");
 const newCardForm = document.querySelector("#new-card-form");
-//instancia UserInfo
+
 const nameSelector = ".profile__title";
 const jobSelector = ".profile__description";
-//instancias de FormValidator
+
 const configurationValidationForm = {
   inputSelector: ".popup__input",
   submitButton: ".popup__button",
@@ -81,10 +81,6 @@ openModalCard.addEventListener("click", function () {
   newCardPopupInstance.open();
 });
 
-closeButtonCard.addEventListener("click", function () {
-  newCardPopupInstance.close();
-});
-
 myforms.setEventListeners();
 myNewCards.setEventListeners();
 
@@ -99,7 +95,7 @@ const newCardPopupInstance = new PopupWithForm(
 const newEditProfilePopupInstance = new PopupWithForm(
   "#edit-popup",
   handleProfileFormSubmit,
-  myforms.resetValidation,
+  myforms.resetValidation.bind(myforms),
 );
 
 //instancia popup de imagen
