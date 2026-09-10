@@ -34,20 +34,33 @@ const initialCards = [
 ];
 
 const profileEditBtn = document.querySelector(".profile__edit-button");
+const openModalCard = document.querySelector(".profile__add-button");
+const newCardPopup = document.querySelector("#new-card-popup");
+const closeButtonCard = newCardPopup.querySelector(".popup__close");
+const form = document.querySelector("#edit-profile-form");
+const newCardForm = document.querySelector("#new-card-form");
+//instancia UserInfo
+const nameSelector = ".profile__title";
+const jobSelector = ".profile__description";
+//instancias de FormValidator
+const configurationValidationForm = {
+  inputSelector: ".popup__input",
+  submitButton: ".popup__button",
+  formErrorActive: "form__input-error_active",
+  popupInputError: "popup__input_type_error",
+};
+
+const myforms = new FormValidator(configurationValidationForm, form);
+const myNewCards = new FormValidator(configurationValidationForm, newCardForm);
+const newUserInfoInstance = new UserInfo({ nameSelector, jobSelector });
 
 profileEditBtn.addEventListener("click", function () {
   handleOpenEditModal();
 });
 
-//instancia UserInfo
-const nameSelector = ".profile__title";
-const jobSelector = ".profile__description";
-
-const newUserInfoInstance = new UserInfo({ nameSelector, jobSelector });
-
 function fillProfileForm() {
-  let editName = document.querySelector(".popup__input_type_name");
-  let editDescription = document.querySelector(
+  const editName = document.querySelector(".popup__input_type_name");
+  const editDescription = document.querySelector(
     ".popup__input_type_description",
   );
 
@@ -64,10 +77,6 @@ function handleProfileFormSubmit(formValues) {
   newUserInfoInstance.setUserInfo(formValues.name, formValues.description);
 }
 
-const openModalCard = document.querySelector(".profile__add-button");
-const newCardPopup = document.querySelector("#new-card-popup");
-const closeButtonCard = newCardPopup.querySelector(".popup__close");
-
 openModalCard.addEventListener("click", function () {
   newCardPopupInstance.open();
 });
@@ -75,20 +84,6 @@ openModalCard.addEventListener("click", function () {
 closeButtonCard.addEventListener("click", function () {
   newCardPopupInstance.close();
 });
-
-//instancias de FormValidator
-const configurationValidationForm = {
-  inputSelector: ".popup__input",
-  submitButton: ".popup__button",
-  formErrorActive: "form__input-error_active",
-  popupInputError: "popup__input_type_error",
-};
-
-const form = document.querySelector("#edit-profile-form");
-const newCardForm = document.querySelector("#new-card-form");
-
-const myforms = new FormValidator(configurationValidationForm, form);
-const myNewCards = new FormValidator(configurationValidationForm, newCardForm);
 
 myforms.setEventListeners();
 myNewCards.setEventListeners();
