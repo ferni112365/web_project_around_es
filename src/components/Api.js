@@ -5,10 +5,25 @@ class Api {
   }
 
   getInitialCards() {
-    // ...
+    fetch(`${this.baseUrl}/cards/`, {
+      headers: this.headers,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
   }
 
   // otros métodos para trabajar con la API
+  getUserInfo() {
+    fetch(`${this.baseUrl}/users/me/`, {
+      headers: this.headers,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+  }
 }
 
 const api = new Api({
