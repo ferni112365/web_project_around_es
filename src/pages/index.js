@@ -1,6 +1,5 @@
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
-import { Popup } from "../components/Popup.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
@@ -35,8 +34,6 @@ const initialCards = [
 
 const profileEditBtn = document.querySelector(".profile__edit-button");
 const openModalCard = document.querySelector(".profile__add-button");
-const newCardPopup = document.querySelector("#new-card-popup");
-const closeButtonCard = newCardPopup.querySelector(".popup__close");
 const form = document.querySelector("#edit-profile-form");
 const newCardForm = document.querySelector("#new-card-form");
 

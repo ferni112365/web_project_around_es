@@ -4,7 +4,6 @@ export class Popup {
   #closeButton;
   #popupContent;
   #handleFormReset;
-  #resetValidation;
 
   constructor(popupSelector, handleFormReset) {
     this.#popupSelector = document.querySelector(popupSelector);

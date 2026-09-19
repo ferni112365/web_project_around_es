@@ -5,7 +5,7 @@ export class UserInfo {
   }
 
   getUserInfo() {
-    let userInfo = {
+    const userInfo = {
       name: this._userName.textContent,
       job: this._userDescription.textContent,
     };
