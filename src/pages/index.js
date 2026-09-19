@@ -39,6 +39,7 @@ const newCardForm = document.querySelector("#new-card-form");
 
 const nameSelector = ".profile__title";
 const jobSelector = ".profile__description";
+const avatarSelector = ".profile__image";
 
 const configurationValidationForm = {
   inputSelector: ".popup__input",
@@ -49,7 +50,11 @@ const configurationValidationForm = {
 
 const myforms = new FormValidator(configurationValidationForm, form);
 const myNewCards = new FormValidator(configurationValidationForm, newCardForm);
-const newUserInfoInstance = new UserInfo({ nameSelector, jobSelector });
+const newUserInfoInstance = new UserInfo({
+  nameSelector,
+  jobSelector,
+  avatarSelector,
+});
 
 profileEditBtn.addEventListener("click", function () {
   handleOpenEditModal();
