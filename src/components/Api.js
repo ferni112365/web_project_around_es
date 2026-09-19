@@ -33,3 +33,10 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+//prueba para conectar el servidor
+api.getUserInfo()
+    .then((data) => {
+        UserInfo.setUserInfo(data.name, data.job, data.avatar);
+    });
+    .catch((err) => console.log(err));
