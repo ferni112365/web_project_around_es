@@ -4,6 +4,7 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Section } from "../components/Section.js";
+import { Api } from "../components/Api.js";
 
 const initialCards = [
   {
@@ -136,7 +137,14 @@ function createCard(item) {
 }
 
 //Llamada
-api
+const newApiInstance = new Api({
+  baseUrl: "https://around-api.es.tripleten-services.com/v1",
+  headers: {
+    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    "Content-Type": "application/json",
+  },
+});
+newApiInstance
   .getUserInfo()
   .then((data) => {
     newUserInfoInstance.setUserInfo(data.name, data.about, data.avatar);

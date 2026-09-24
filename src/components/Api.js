@@ -1,11 +1,11 @@
-class Api {
+export class Api {
   constructor(options) {
     this.baseUrl = options.baseUrl;
     this.headers = options.headers;
   }
 
   getInitialCards() {
-    fetch(`${this.baseUrl}/cards/`, {
+    return fetch(`${this.baseUrl}/cards/`, {
       headers: this.headers,
     })
       .then((res) => res.json())
@@ -16,7 +16,7 @@ class Api {
 
   // otros métodos para trabajar con la API
   getUserInfo() {
-    fetch(`${this.baseUrl}/users/me/`, {
+    return fetch(`${this.baseUrl}/users/me`, {
       headers: this.headers,
     })
       .then((res) => res.json())
@@ -29,7 +29,7 @@ class Api {
 const api = new Api({
   baseUrl: "https://around-api.es.tripleten-services.com/v1",
   headers: {
-    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    authorization: "835d92fb-e209-44f2-beac-2e4da90ff6eb",
     "Content-Type": "application/json",
   },
 });
