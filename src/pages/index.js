@@ -134,3 +134,13 @@ function createCard(item) {
   const cardElement = card.generateCard();
   return cardElement;
 }
+
+//Llamada
+api
+  .getUserInfo()
+  .then((data) => {
+    newUserInfoInstance.setUserInfo(data.name, data.about, data.avatar);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
