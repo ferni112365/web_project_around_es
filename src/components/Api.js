@@ -11,6 +11,7 @@ export class Api {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        return result;
       });
   }
 
@@ -22,6 +23,7 @@ export class Api {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        return result;
       });
   }
 }
