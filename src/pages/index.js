@@ -56,6 +56,7 @@ const newUserInfoInstance = new UserInfo({
   jobSelector,
   avatarSelector,
 });
+let newSectionInstance;
 
 profileEditBtn.addEventListener("click", function () {
   handleOpenEditModal();
@@ -157,7 +158,7 @@ newApiInstance
 newApiInstance
   .getInitialCards()
   .then((cards) => {
-    const newSectionInstance = new Section(
+    newSectionInstance = new Section(
       { items: cards, renderer: createCard },
       ".cards__list",
     );
