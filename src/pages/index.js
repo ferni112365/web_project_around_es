@@ -137,7 +137,7 @@ function createCard(item) {
   return cardElement;
 }
 
-//Llamadas
+//Llamadas PASO 1
 const newApiInstance = new Api({
   baseUrl: "https://around-api.es.tripleten-services.com/v1",
   headers: {
@@ -154,7 +154,7 @@ newApiInstance
     console.log(err);
   });
 
-//instancia de cards
+//instancia de cards PASO2
 newApiInstance
   .getInitialCards()
   .then((cards) => {
