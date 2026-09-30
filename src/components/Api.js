@@ -26,6 +26,23 @@ export class Api {
         return result;
       });
   }
+
+  //PASO 3
+  editUserInfo(name, about) {
+    return fetch(`${this.baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this.headers,
+      body: JSON.stringify({
+        name: name,
+        about: about,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        return result;
+      });
+  }
 }
 
 const api = new Api({
@@ -35,20 +52,3 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-
-//PASO 3
-editUserInfo(name, about) {
-  return fetch(`${this.baseUrl}/users/me`, {
-      method: "PATCH",
-      headers: this.headers,
-      body: JSON.stringify({
-        name: name, 
-        about: about,
-      })
-    })
-    .then((res) => res.json())
-    .then((result) => {
-      console.log(result);
-      return result;
-    });
-}
