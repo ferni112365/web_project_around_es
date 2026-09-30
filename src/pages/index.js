@@ -77,8 +77,14 @@ function handleOpenEditModal() {
   newEditProfilePopupInstance.open();
 }
 
+//paso 3, editar función para que acepte los valores de Api.js
 function handleProfileFormSubmit(formValues) {
-  newUserInfoInstance.setUserInfo(formValues.name, formValues.description);
+  newApiInstance
+    .editUserInfo(formValues.name, formValues.description)
+    .then((res) => {
+      newUserInfoInstance.setUserInfo(formValues.name, formValues.description);
+      console.log(res);
+    });
 }
 
 openModalCard.addEventListener("click", function () {
