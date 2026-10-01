@@ -46,7 +46,7 @@ export class Api {
 
   //paso 4
   addCard(name, link) {
-    return fetch(`${this.baseUrl}/cards`, {
+    return fetch(`${this.baseUrl}/cards/`, {
       method: "POST",
       headers: this.headers,
       body: JSON.stringify({

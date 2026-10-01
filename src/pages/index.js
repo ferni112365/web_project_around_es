@@ -116,14 +116,14 @@ function handleCardImageClick(name, link) {
   newPopUpWithImageInstance.open(name, link);
 }
 
+//paso 4. Actualización para usar addCard
 function handleCardFormSubmit(formValues) {
-  const newTitleValue = formValues.name;
-  const newLinkValue = formValues.link;
-
-  const data = { name: newTitleValue, link: newLinkValue };
-  const myCard = new Card(data, "#card-template", handleCardImageClick);
-  const cardElement = myCard.generateCard();
-  newSectionInstance.addItem(cardElement);
+  newApiInstance.addCard(formValues.name, formValues.link).then((res) => {
+    const myCard = new Card(res, "#card-template", handleCardImageClick);
+    const cardElement = myCard.generateCard();
+    newSectionInstance.addItem(cardElement);
+    console.log(res);
+  });
 
   newCardPopupInstance.close();
   newCardForm.reset();
