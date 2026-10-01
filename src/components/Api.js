@@ -43,6 +43,23 @@ export class Api {
         return result;
       });
   }
+
+  //paso 4
+  addCard(name, link) {
+    return fetch(`${this.baseUrl}/cards`, {
+      method: "POST",
+      headers: this.headers,
+      body: JSON.stringify({
+        name: name,
+        link: link,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        return result;
+      });
+  }
 }
 
 const api = new Api({
