@@ -3,6 +3,8 @@ export class Card {
   constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
+    this._id = data._id;
+    this._isLiked = data.isLiked;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
   }
@@ -22,6 +24,12 @@ export class Card {
     this._element.querySelector(".card__image").alt = this._name;
     this._element.querySelector(".card__title").textContent = this._name;
     this._setEventListeners();
+
+    if (this._isLiked === true) {
+      this._element
+        .querySelector(".card__like-button")
+        .classList.add("card__like-button_is-active");
+    }
 
     return this._element;
   }
