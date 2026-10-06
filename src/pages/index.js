@@ -119,7 +119,12 @@ function handleCardImageClick(name, link) {
 //paso 4. Actualización para usar addCard
 function handleCardFormSubmit(formValues) {
   newApiInstance.addCard(formValues.name, formValues.link).then((res) => {
-    const myCard = new Card(res, "#card-template", handleCardImageClick);
+    const myCard = new Card(
+      res,
+      "#card-template",
+      handleCardImageClick,
+      handleIsLiked,
+    );
     const cardElement = myCard.generateCard();
     newSectionInstance.addItem(cardElement);
     console.log(res);
@@ -138,7 +143,12 @@ function handleCardFormSubmit(formValues) {
 // newSectionInstance.renderItems();
 
 function createCard(item) {
-  const card = new Card(item, "#card-template", handleCardImageClick);
+  const card = new Card(
+    item,
+    "#card-template",
+    handleCardImageClick,
+    handleIsLiked,
+  );
   const cardElement = card.generateCard();
   return cardElement;
 }

@@ -1,12 +1,13 @@
 // ejercicio 1
 export class Card {
-  constructor(data, cardSelector, handleCardClick) {
+  constructor(data, cardSelector, handleCardClick, handleIsLiked) {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
     this._isLiked = data.isLiked;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._handleIsLiked = handleIsLiked;
   }
 
   _getTemplate() {
@@ -55,9 +56,7 @@ export class Card {
   }
 
   _handleLikeClick() {
-    this._element
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_is-active");
+    this._handleIsLiked(this._id, this._isLiked);
   }
 
   _handleDeleteClick() {

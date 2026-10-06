@@ -60,6 +60,30 @@ export class Api {
         return result;
       });
   }
+
+  addLike(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this.headers,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        return result;
+      });
+  }
+
+  deleteLike(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this.headers,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        return result;
+      });
+  }
 }
 
 const api = new Api({
