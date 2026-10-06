@@ -24,6 +24,7 @@ export class Card {
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__image").alt = this._name;
     this._element.querySelector(".card__title").textContent = this._name;
+    this._likeButton = this._element.querySelector(".card__like-button");
     this._setEventListeners();
 
     if (this._isLiked === true) {
@@ -56,7 +57,13 @@ export class Card {
   }
 
   _handleLikeClick() {
-    this._handleIsLiked(this._id, this._isLiked);
+    this._handleIsLiked(this._id, this._isLiked).then((res) => {
+      this._isLiked = res.isLiked;
+      this._likeButton.classList.toggle(
+        "card__like-button_is-active",
+        res.isLiked,
+      );
+    });
   }
 
   _handleDeleteClick() {
