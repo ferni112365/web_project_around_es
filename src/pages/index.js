@@ -155,12 +155,12 @@ function createCard(item) {
 
 function handleIsLiked(cardId, isLiked) {
   if (isLiked == true) {
-    return newApiInstance.addLike(cardId).then((res) => {
+    return newApiInstance.deleteLike(cardId).then((res) => {
       console.log(res);
       return res;
     });
   } else {
-    return newApiInstance.deleteLike(cardId).then((res) => {
+    return newApiInstance.addLike(cardId).then((res) => {
       console.log(res);
       return res;
     });
