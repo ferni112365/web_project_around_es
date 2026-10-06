@@ -153,6 +153,20 @@ function createCard(item) {
   return cardElement;
 }
 
+function handleIsLiked(cardId, isLiked) {
+  if (isLiked == true) {
+    return newApiInstance.addLike(cardId).then((res) => {
+      console.log(res);
+      return res;
+    });
+  } else {
+    return newApiInstance.deleteLike(cardId).then((res) => {
+      console.log(res);
+      return res;
+    });
+  }
+}
+
 //Llamadas PASO 1
 const newApiInstance = new Api({
   baseUrl: "https://around-api.es.tripleten-services.com/v1",
