@@ -53,3 +53,10 @@ export class Popup {
     return this.#popupSelector;
   }
 }
+
+class PopupWithConfirmation extends Popup {
+  constructor(popupSelector, deleteConfirmation) {
+    super(popupSelector);
+    this._deleteConfirmation = deleteConfirmation;
+  }
+}
