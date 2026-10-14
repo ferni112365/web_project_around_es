@@ -59,4 +59,13 @@ class PopupWithConfirmation extends Popup {
     super(popupSelector);
     this._deleteConfirmation = deleteConfirmation;
   }
+
+  setEventListeners() {
+    super.setEventListeners();
+    this._popup
+      .querySelector(".popup__button")
+      .addEventListener("click", () => {
+        this._deleteConfirmation();
+      });
+  }
 }
