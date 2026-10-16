@@ -1,6 +1,12 @@
 // ejercicio 1
 export class Card {
-  constructor(data, cardSelector, handleCardClick, handleIsLiked) {
+  constructor(
+    data,
+    cardSelector,
+    handleCardClick,
+    handleIsLiked,
+    handleDelete,
+  ) {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
@@ -8,6 +14,7 @@ export class Card {
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._handleIsLiked = handleIsLiked;
+    this._handleDelete = handleDelete;
   }
 
   _getTemplate() {
@@ -67,6 +74,6 @@ export class Card {
   }
 
   _handleDeleteClick() {
-    this._element.remove();
+    this._handleDelete();
   }
 }
