@@ -117,11 +117,9 @@ function handleCardImageClick(name, link) {
 }
 
 //instancia para confirmar la eliminación de la tarjeta
-const newDeleteConfirmation = new PopupWithConfirmation(
-  "#delete-popup",
-  deleteConfirmation,
-);
-console.log("Eliminar tarjeta");
+const newDeleteConfirmation = new PopupWithConfirmation("#delete-popup", () => {
+  console.log("Eliminar tarjeta");
+});
 newDeleteConfirmation.setEventListeners();
 
 function handleDelete() {
