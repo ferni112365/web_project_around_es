@@ -116,6 +116,18 @@ function handleCardImageClick(name, link) {
   newPopUpWithImageInstance.open(name, link);
 }
 
+//instancia para confirmar la eliminación de la tarjeta
+const newDeleteConfirmation = new PopupWithConfirmation(
+  "#delete-popup",
+  deleteConfirmation,
+);
+console.log("Eliminar tarjeta");
+newDeleteConfirmation.setEventListeners();
+
+function handleDelete() {
+  newDeleteConfirmation.open();
+}
+
 //paso 4. Actualización para usar addCard
 function handleCardFormSubmit(formValues) {
   newApiInstance.addCard(formValues.name, formValues.link).then((res) => {
