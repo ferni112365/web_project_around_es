@@ -145,13 +145,6 @@ function handleCardFormSubmit(formValues) {
   myNewCards.updateButtonState();
 }
 
-//instancia Section
-// const newSectionInstance = new Section(
-//   { items: initialCards, renderer: createCard },
-//   ".cards__list",
-// );
-// newSectionInstance.renderItems();
-
 function createCard(item) {
   const card = new Card(
     item,
