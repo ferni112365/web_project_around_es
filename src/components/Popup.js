@@ -52,6 +52,10 @@ export class Popup {
   get popupElement() {
     return this.#popupSelector;
   }
+
+  getPopupElement() {
+    return this.#popupSelector;
+  }
 }
 
 export class PopupWithConfirmation extends Popup {
@@ -62,7 +66,7 @@ export class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._popup
+    this.#popupSelector
       .querySelector(".popup__button")
       .addEventListener("click", () => {
         this._deleteConfirmation();
