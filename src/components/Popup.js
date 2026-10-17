@@ -66,7 +66,7 @@ export class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this.#popupSelector
+    this.getPopupElement()
       .querySelector(".popup__button")
       .addEventListener("click", () => {
         this._deleteConfirmation();
