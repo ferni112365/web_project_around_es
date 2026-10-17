@@ -5,6 +5,7 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Section } from "../components/Section.js";
 import { Api } from "../components/Api.js";
+import { Popup, PopupWithConfirmation } from "../components/Popup.js";
 
 // const initialCards = [
 //   {
@@ -134,6 +135,7 @@ function handleCardFormSubmit(formValues) {
       "#card-template",
       handleCardImageClick,
       handleIsLiked,
+      handleDelete,
     );
     const cardElement = myCard.generateCard();
     newSectionInstance.addItem(cardElement);
@@ -151,6 +153,7 @@ function createCard(item) {
     "#card-template",
     handleCardImageClick,
     handleIsLiked,
+    handleDelete,
   );
   const cardElement = card.generateCard();
   return cardElement;

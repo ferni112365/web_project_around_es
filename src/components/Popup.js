@@ -54,7 +54,7 @@ export class Popup {
   }
 }
 
-class PopupWithConfirmation extends Popup {
+export class PopupWithConfirmation extends Popup {
   constructor(popupSelector, deleteConfirmation) {
     super(popupSelector);
     this._deleteConfirmation = deleteConfirmation;
