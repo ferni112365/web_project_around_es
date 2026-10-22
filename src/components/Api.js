@@ -84,6 +84,19 @@ export class Api {
         return result;
       });
   }
+
+  //paso 7: eliminar una tarjeta
+  deleteCard(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this.headers,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        return result;
+      });
+  }
 }
 
 const api = new Api({
