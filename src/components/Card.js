@@ -74,6 +74,6 @@ export class Card {
   }
 
   _handleDeleteClick() {
-    this._handleDelete();
+    this._handleDelete(this._id, this._element);
   }
 }
