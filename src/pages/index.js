@@ -121,7 +121,17 @@ function handleCardImageClick(name, link) {
 
 //instancia para confirmar la eliminación de la tarjeta
 const newDeleteConfirmation = new PopupWithConfirmation("#delete-popup", () => {
-  console.log("Eliminar tarjeta");
+  newApiInstance
+    .deleteCard(selectedCardId)
+    .then((res) => {
+      if (res.ok) {
+        selectedCardElement.remove();
+        newDeleteConfirmation.close();
+      }
+    })
+    .catch((err) => {
+      console.log(`Error: ${err}`);
+    });
 });
 newDeleteConfirmation.setEventListeners();
 
