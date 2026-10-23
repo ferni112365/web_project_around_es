@@ -38,6 +38,8 @@ const profileEditBtn = document.querySelector(".profile__edit-button");
 const openModalCard = document.querySelector(".profile__add-button");
 const form = document.querySelector("#edit-profile-form");
 const newCardForm = document.querySelector("#new-card-form");
+let selectedCardId = null;
+let selectedCardElement = null;
 
 const nameSelector = ".profile__title";
 const jobSelector = ".profile__description";
@@ -123,7 +125,10 @@ const newDeleteConfirmation = new PopupWithConfirmation("#delete-popup", () => {
 });
 newDeleteConfirmation.setEventListeners();
 
-function handleDelete() {
+//paso 7: Eliminar una tarjeta
+function handleDelete(cardId, cardElement) {
+  selectedCardId = cardId;
+  selectedCardElement = cardElement;
   newDeleteConfirmation.open();
 }
 
