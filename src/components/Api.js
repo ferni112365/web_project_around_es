@@ -73,6 +73,7 @@ export class Api {
       });
   }
 
+  //paso 8 añadir y eliminar "me gusta"
   deleteLike(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
@@ -89,6 +90,19 @@ export class Api {
   deleteCard(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}`, {
       method: "DELETE",
+      headers: this.headers,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        return result;
+      });
+  }
+
+  //paso 8 añadir y eliminar "Me gusta"
+  addLike(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
       headers: this.headers,
     })
       .then((res) => res.json())
