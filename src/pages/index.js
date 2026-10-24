@@ -124,10 +124,8 @@ const newDeleteConfirmation = new PopupWithConfirmation("#delete-popup", () => {
   newApiInstance
     .deleteCard(selectedCardId)
     .then((res) => {
-      if (res.ok) {
-        selectedCardElement.remove();
-        newDeleteConfirmation.close();
-      }
+      selectedCardElement.remove();
+      newDeleteConfirmation.close();
     })
     .catch((err) => {
       console.log(`Error: ${err}`);
