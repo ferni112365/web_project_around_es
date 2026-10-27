@@ -63,6 +63,7 @@
   width: 26px;
   height: 26px;
   border-radius: 16%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
   /* object-fit: cover; */
   /* background-position: center; */
 }

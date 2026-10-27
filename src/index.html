@@ -91,6 +91,34 @@
             <button class="button popup__button" type="submit">Guardar</button>
           </form>
         </div>
+
+        <!-- copia del popup -->
+        <div class="popup__content" id="edit-popup-avatar">
+          <button
+            aria-label="Cerrar ventana emergente"
+            class="popup__close"
+            type="button"
+          ></button>
+          <h3 class="popup__title">Editar avatar</h3>
+          <form class="popup__form" id="edit-profile-form-avatar">
+            <input
+              class="popup__input popup__input_type_name-avatar"
+              id="name-input-avatar"
+              name="avatar"
+              placeholder="Enlace de la imagen"
+              type="url"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span
+              id="name-input-error-avatar"
+              class="name-input-error popup__input-error"
+            ></span>
+            <button class="button popup__button" type="submit">Guardar</button>
+          </form>
+        </div>
+        <!-- fin copia del popup -->
       </div>
       <div class="popup" id="new-card-popup">
         <div class="popup__content">
