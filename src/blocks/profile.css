@@ -46,6 +46,20 @@
   margin-right: 29px;
 }
 
+.profile__avatar-edit-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-position: center;
+  margin-right: 29px;
+}
+
+.profile__avatar-edit-icon:hover {
+  opacity: 0.5;
+  visibility: hidden;
+}
+
 .profile__add-button {
   width: 150px;
   height: 50px;
