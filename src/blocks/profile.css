@@ -37,6 +37,14 @@
   max-width: 373px;
 }
 
+.profile__avatar-container {
+  position: relative;
+}
+
+.profile__avatar-container:hover .profile__avatar-edit-icon {
+  opacity: 1;
+}
+
 .profile__image {
   width: 120px;
   height: 120px;
@@ -47,17 +55,16 @@
 }
 
 .profile__avatar-edit-icon {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  background-position: center;
-  margin-right: 29px;
-}
-
-.profile__avatar-edit-icon:hover {
-  opacity: 0.5;
-  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 16%;
+  /* object-fit: cover; */
+  /* background-position: center; */
 }
 
 .profile__add-button {
