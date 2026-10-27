@@ -111,6 +111,22 @@ export class Api {
         return result;
       });
   }
+
+  //paso 9 actualizar la foto de perfil
+  updateAvatar(avatarLink) {
+    return fetch(`${this.baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this.headers,
+      body: JSON.stringify({
+        avatar: avatarLink,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        return result;
+      });
+  }
 }
 
 const api = new Api({
