@@ -200,11 +200,17 @@ function handleUpdateAvatar(formValues) {
 }
 
 // paso 9: instancia del popup del avatar
-newEditAvatarPopupInstance = new PopupWithForm(
+const newEditAvatarPopupInstance = new PopupWithForm(
   "#edit-popup-avatar",
   handleUpdateAvatar,
   newAvatar.resetValidation.bind(newAvatar),
 );
+
+avatarEditIcon.addEventListener("click", function () {
+  newEditAvatarPopupInstance.open();
+});
+newEditAvatarPopupInstance.setEventListeners();
+newAvatar.setEventListeners();
 
 //Llamadas PASO 1
 const newApiInstance = new Api({
