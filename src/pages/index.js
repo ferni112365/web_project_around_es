@@ -44,6 +44,7 @@ let selectedCardElement = null;
 const nameSelector = ".profile__title";
 const jobSelector = ".profile__description";
 const avatarSelector = ".profile__image";
+const editAvatar = document.querySelector("#edit-profile-form-avatar");
 
 const configurationValidationForm = {
   inputSelector: ".popup__input",
@@ -60,6 +61,7 @@ const newUserInfoInstance = new UserInfo({
   avatarSelector,
 });
 let newSectionInstance;
+const newAvatar = new FormValidator(configurationValidationForm, editAvatar);
 
 profileEditBtn.addEventListener("click", function () {
   handleOpenEditModal();
@@ -196,6 +198,13 @@ function handleUpdateAvatar(formValues) {
     console.log(res);
   });
 }
+
+// paso 9: instancia del popup del avatar
+newEditAvatarPopupInstance = new PopupWithForm(
+  "#edit-popup-avatar",
+  handleUpdateAvatar,
+  newAvatar.resetValidation.bind(newAvatar),
+);
 
 //Llamadas PASO 1
 const newApiInstance = new Api({
