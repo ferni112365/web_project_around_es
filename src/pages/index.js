@@ -186,6 +186,17 @@ function handleIsLiked(cardId, isLiked) {
   }
 }
 
+//paso 9
+const avatarEditIcon = document.querySelector(".profile__avatar-edit-icon");
+
+function handleUpdateAvatar(formValues) {
+  newApiInstance.updateAvatar(formValues.avatar).then((res) => {
+    const avatarSelector = document.querySelector(".profile__image");
+    avatarSelector.src = res.avatar;
+    console.log(res);
+  });
+}
+
 //Llamadas PASO 1
 const newApiInstance = new Api({
   baseUrl: "https://around-api.es.tripleten-services.com/v1",
