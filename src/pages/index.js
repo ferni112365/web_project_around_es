@@ -84,11 +84,24 @@ function handleOpenEditModal() {
 
 //paso 3, editar función para que acepte los valores de Api.js
 function handleProfileFormSubmit(formValues, submitButton) {
+  const originalText = submitButton.textContent;
+  submitButton.textContent = "Enviando...";
   newApiInstance
     .editUserInfo(formValues.name, formValues.description)
     .then((res) => {
       newUserInfoInstance.setUserInfo(formValues.name, formValues.description);
       console.log(res);
+
+      newEditProfilePopupInstance.close();
+      form.reset();
+    })
+
+    .catch((err) => {
+      console.error(err);
+    })
+
+    .finally(() => {
+      submitButton.textContent = originalText;
     });
 }
 
@@ -144,22 +157,34 @@ function handleDelete(cardId, cardElement) {
 
 //paso 4. Actualización para usar addCard
 function handleCardFormSubmit(formValues, submitButton) {
-  newApiInstance.addCard(formValues.name, formValues.link).then((res) => {
-    const myCard = new Card(
-      res,
-      "#card-template",
-      handleCardImageClick,
-      handleIsLiked,
-      handleDelete,
-    );
-    const cardElement = myCard.generateCard();
-    newSectionInstance.addItem(cardElement);
-    console.log(res);
-  });
+  const originalText = submitButton.textContent;
+  submitButton.textContent = "Enviando...";
+  newApiInstance
+    .addCard(formValues.name, formValues.link)
+    .then((res) => {
+      const myCard = new Card(
+        res,
+        "#card-template",
+        handleCardImageClick,
+        handleIsLiked,
+        handleDelete,
+      );
+      const cardElement = myCard.generateCard();
+      newSectionInstance.addItem(cardElement);
+      console.log(res);
 
-  newCardPopupInstance.close();
-  newCardForm.reset();
-  myNewCards.updateButtonState();
+      newCardPopupInstance.close();
+      newCardForm.reset();
+      myNewCards.updateButtonState();
+    })
+
+    .catch((err) => {
+      console.error(err);
+    })
+
+    .finally(() => {
+      submitButton.textContent = originalText;
+    });
 }
 
 function createCard(item) {
@@ -191,12 +216,27 @@ function handleIsLiked(cardId, isLiked) {
 //paso 9
 const avatarEditIcon = document.querySelector(".profile__avatar-edit-icon");
 
-function handleUpdateAvatar(formValues) {
-  newApiInstance.updateAvatar(formValues.avatar).then((res) => {
-    const avatarSelector = document.querySelector(".profile__image");
-    avatarSelector.src = res.avatar;
-    console.log(res);
-  });
+function handleUpdateAvatar(formValues, submitButton) {
+  const originalText = submitButton.textContent;
+  submitButton.textContent = "Enviando...";
+  newApiInstance
+    .updateAvatar(formValues.avatar)
+    .then((res) => {
+      const avatarSelector = document.querySelector(".profile__image");
+      avatarSelector.src = res.avatar;
+      console.log(res);
+
+      newEditAvatarPopupInstance.close();
+      editAvatar.reset();
+    })
+
+    .catch((err) => {
+      console.error(err);
+    })
+
+    .finally(() => {
+      submitButton.textContent = originalText;
+    });
 }
 
 // paso 9: instancia del popup del avatar
