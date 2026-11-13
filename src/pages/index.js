@@ -83,7 +83,7 @@ function handleOpenEditModal() {
 }
 
 //paso 3, editar función para que acepte los valores de Api.js
-function handleProfileFormSubmit(formValues) {
+function handleProfileFormSubmit(formValues, submitButton) {
   newApiInstance
     .editUserInfo(formValues.name, formValues.description)
     .then((res) => {
@@ -143,7 +143,7 @@ function handleDelete(cardId, cardElement) {
 }
 
 //paso 4. Actualización para usar addCard
-function handleCardFormSubmit(formValues) {
+function handleCardFormSubmit(formValues, submitButton) {
   newApiInstance.addCard(formValues.name, formValues.link).then((res) => {
     const myCard = new Card(
       res,
