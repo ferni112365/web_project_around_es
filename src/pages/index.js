@@ -85,7 +85,7 @@ function handleOpenEditModal() {
 //paso 3, editar función para que acepte los valores de Api.js
 function handleProfileFormSubmit(formValues, submitButton) {
   const originalText = submitButton.textContent;
-  submitButton.textContent = "Enviando...";
+  submitButton.textContent = "Guardando...";
   newApiInstance
     .editUserInfo(formValues.name, formValues.description)
     .then((res) => {
